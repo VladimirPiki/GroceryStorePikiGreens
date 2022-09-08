@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html lang="en">
 	<head>
-	  <title>Fc Jeni Maale</title>
+	  <title>Grocery store - "Piki Greens"</title>
 	  <meta charset="utf-8">
 	  <meta name="description" content="Grocery store for vegetables and fruits">
 	  <meta name="keywords" content="Grocery store, Vegetables, Fruits, Macedonia">
@@ -25,44 +25,63 @@
 	   <link rel="stylesheet" href="assets/icons/fontawesome-free-6.1.2-web/css/all.css">
 	  
 	</head>
-	<body ng-app="myApp" ng-controller="myCtrl">
+	<body class="container-fluid firstSection" ng-app="myApp" ng-controller="myCtrl">
 		<!-- view -->
-		<nav class="navbar bg-light fixed-top">
+
+		<nav class="navbar fixed-top container-fluid myGreenColor">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Piki Greens</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
+              <a class="navbar-brand text-light myHover" href="#!main">
+                <i class="fa-solid fa-lemon"></i> <i class="fa-solid fa-apple-whole"></i> <i class="fa-solid fa-leaf"></i> Grocery store - "Piki Greens" 
+                <i class="fa-solid fa-seedling"></i> <i class="fa-solid fa-pepper-hot"></i> <i class="fa-solid fa-carrot"></i> 
+            </a>
+              
+              <button class="navbar-toggler text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span></span>
+                <i class="fa-regular fa-square-caret-down fa-2x"></i>
               </button>
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas offcanvas-end myGreenColor" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel ">Grocery Store</h5>
+                  <i type="button" data-bs-dismiss="offcanvas" aria-label="Close"class="fa-regular fa-circle-xmark text-light fa-2x" aria-hidden="true"></i>
                 </div>
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      <a class="nav-link active text-light myHover" aria-current="page" href="#!proizvodi">Products</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
+                      <a class="nav-link text-light myHover" href="#!dukani">Shop</a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                      <a class="nav-link dropdown-toggle text-light myHover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        STORE
                       </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <ul class="dropdown-menu myGreenColor myBorder">
+                        <li><a class="dropdown-item text-light myHover"  href="#!vraboteni">Employees</a></li>
+                        <li><a class="dropdown-item text-light myHover" href="#!rabotnik">Employee of the Day</a></li>
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item text-light myHover" href="#!prodazba">Sale</a></li>
                       </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light myHover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Details
+                        </a>
+                        <ul class="dropdown-menu myGreenColor myBorder">
+                          <li><a class="dropdown-item text-light myHover"  href="#!details_dukani">Entry Shop</a></li>
+                          <li><a class="dropdown-item text-light myHover" href="#!details_prodazba">Entry Sale</a></li>
+                          <li><a class="dropdown-item text-light myHover"  href="#!details_proizvodi">Entry Products</a></li>
+                          <li><a class="dropdown-item text-light myHover" href="#!details_rabotnik">Entry Employee of the Day</a></li>
+                          <li><a class="dropdown-item text-light myHover"  href="#!details_vraboteni">Entry Employees</a></li>
+                        </ul>
+                      </li>
                   </ul>
                   <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                   <!-- <button class="btn myWhiteColor" type="submit">Search</button>-->
+                    <i class="fa-solid fa-magnifying-glass fa-2x" type="submit"></i>
                   </form>
                 </div>
               </div>
@@ -71,13 +90,12 @@
 
 
 		<div ng-view></div>
-		<footer>
-			<a href="#!home"><img src="assets/img/profilna nova.jpg" alt="Avatar Logo" style="width:40px;" class="rounded-pill"></a>
-
-			<a href="#!home"><img src="assets/img/Kojot.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"></a>
+		<footer  class="fixed-bottom">
+            <br>
+			<a href="#!main"><img src="assets/img/Macedonian-Flag-1992-1995.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"></a>
 			<br>
-			<h3>© ФК ЈЕНИ МААЛЕ</h3>
-			<p>Повеќе од клуб!!!</p>
+			<h5 >©VladimirPiki</h3>
+			<h6 >Web Developer</p>
 		</footer>
 	</body>
 </html>

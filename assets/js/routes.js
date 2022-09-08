@@ -4,36 +4,44 @@ app.config(function($routeProvider) {
     templateUrl : "view/main.html",
 	controller:"myCtrl"
   })
-  .when("/igrachi", {
-    templateUrl : "view/igrachi.html",
+  .when("/dukani", {
+    templateUrl : "view/dukani.html",
 	controller:"myCtrl"
   })
-  .when("/income", {
-    templateUrl : "view/income.html",
+  .when("/prodazba", {
+    templateUrl : "view/prodazba.html",
 	controller:"myCtrl"
   })
-  .when("/natprevaruvanje", {
-    templateUrl : "view/natprevaruvanje.html",
+  .when("/proizvodi", {
+    templateUrl : "view/proizvodi.html",
 	controller:"myCtrl"
   })
-  .when("/outcome", {
-    templateUrl : "view/outcome.html",
+  .when("/rabotnik", {
+    templateUrl : "view/rabotnik.html",
 	controller:"myCtrl"
   })
-  .when("/publika", {
-    templateUrl : "view/publika.html",
+  .when("/vraboteni", {
+    templateUrl : "view/vraboteni.html",
 	controller:"myCtrl"
   })
-  .when("/sostav", {
-    templateUrl : "view/sostav.html",
+  .when("/details_dukani", {
+    templateUrl : "view/details_dukani.html",
 	controller:"myCtrl"
   })
-  .when("/stadion", {
-    templateUrl : "view/stadion.html",
+  .when("/details_prodazba", {
+    templateUrl : "view/details_prodazba.html",
 	controller:"myCtrl"
   })
-  .when("/uprava", {
-    templateUrl : "view/uprava.html",
+  .when("/details_proizvodi", {
+    templateUrl : "view/details_proizvodi.html",
+	controller:"myCtrl"
+  })
+  .when("/details_rabotnik", {
+    templateUrl : "view/details_rabotnik.html",
+	controller:"myCtrl"
+  })
+  .when("/details_vraboteni", {
+    templateUrl : "view/details_vraboteni.html",
 	controller:"myCtrl"
   })
 });
