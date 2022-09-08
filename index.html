@@ -25,7 +25,7 @@
 	   <link rel="stylesheet" href="assets/icons/fontawesome-free-6.1.2-web/css/all.css">
 	  
 	</head>
-	<body class="container-fluid firstSection" ng-app="myApp" ng-controller="myCtrl">
+	<body class="firstSection" ng-app="myApp" ng-controller="myCtrl">
 		<!-- view -->
 
 		<nav class="navbar fixed-top container-fluid myGreenColor">
@@ -58,7 +58,7 @@
                       </a>
                       <ul class="dropdown-menu myGreenColor myBorder">
                         <li><a class="dropdown-item text-light myHover"  href="#!vraboteni">Employees</a></li>
-                        <li><a class="dropdown-item text-light myHover" href="#!rabotnik">Employee of the Day</a></li>
+                        <li><a class="dropdown-item text-light myHover" href="#!rabotnik">Worker of the Day</a></li>
                         <li>
                           <hr class="dropdown-divider">
                         </li>
@@ -73,7 +73,7 @@
                           <li><a class="dropdown-item text-light myHover"  href="#!details_dukani">Entry Shop</a></li>
                           <li><a class="dropdown-item text-light myHover" href="#!details_prodazba">Entry Sale</a></li>
                           <li><a class="dropdown-item text-light myHover"  href="#!details_proizvodi">Entry Products</a></li>
-                          <li><a class="dropdown-item text-light myHover" href="#!details_rabotnik">Entry Employee of the Day</a></li>
+                          <li><a class="dropdown-item text-light myHover" href="#!details_rabotnik">Entry Worker of the Day</a></li>
                           <li><a class="dropdown-item text-light myHover"  href="#!details_vraboteni">Entry Employees</a></li>
                         </ul>
                       </li>
@@ -90,12 +90,13 @@
 
 
 		<div ng-view></div>
-		<footer  class="fixed-bottom">
-            <br>
-			<a href="#!main"><img src="assets/img/Macedonian-Flag-1992-1995.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"></a>
-			<br>
-			<h5 >©VladimirPiki</h3>
-			<h6 >Web Developer</p>
-		</footer>
+    
+    <footer class="fixed-bottom">
+        <br>
+        <a href="#!main"><img src="assets/img/Macedonian-Flag-1992-1995.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"></a>
+        <br>
+        <h5 >©VladimirPiki</h3>
+        <h6 >Web Developer</p>
+     </footer>
 	</body>
 </html>
