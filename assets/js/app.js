@@ -96,7 +96,7 @@ app.controller('myCtrl', function($scope,$http) {
     ///Delete functions --> Button function of view table
 
     $scope.getIndex=0;
-    $scope.passPosition=function(position) // position=3
+    $scope.passPosition=function(position,index) // position=3
     {
       console.log("position="+position);
       $scope.getIndex=position; // 3

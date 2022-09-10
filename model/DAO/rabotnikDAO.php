@@ -69,7 +69,11 @@ class RabotnikDAO extends Rabotnik
     public function selectRabotnik()
     {
         // TODO implement here
-        return $this->database ->selectRow($this->table_name);
+        return $this->database ->selectRow($this->table_name."
+        inner JOIN dukani
+        ON dukani.dukani_id=rabotnik.rabotnik_id
+        inner JOIN vraboteni
+        ON vraboteni.vraboteni_id=rabotnik.rabotnik_id");
     }
 
     /**

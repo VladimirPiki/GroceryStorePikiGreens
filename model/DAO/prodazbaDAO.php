@@ -64,7 +64,9 @@ class ProdazbaDAO extends Prodazba
     public function selectProdazba()
     {
         // TODO implement here
-        return $this->database ->selectRow($this->table_name);
+        return $this->database ->selectRow($this->table_name."
+        INNER JOIN rabotnik
+        ON rabotnik.rabotnik_id=prodazba.prodazba_id");
     }
 
     /**

@@ -8,30 +8,30 @@
                 <th>Products ID</th>
                 <th>
                     Name of products
-                    <input type="text" name="searchByNameOfProducts" id="searchByNameOfProducts" ng-model="searchByNameOfProducts" placeholder="Search by name">
+                    <input class="form-control" type="text" name="searchByNameOfProducts" id="searchByNameOfProducts" ng-model="searchByNameOfProducts" placeholder="Search by name">
                 </th>
                 <th>
                     Type of products
-                    <input type="text" name="searchByTypeOfProducts" id="searchByTypeOfProducts" ng-model="searchByTypeOfProducts" placeholder="Search by type">
+                   <input class="form-control" type="text" name="searchByTypeOfProducts" id="searchByTypeOfProducts" ng-model="searchByTypeOfProducts" placeholder="Search by type">
                 </th>
                 <th>
                     Kg of products
-                    <input type="number" name="searchByKgOfProducts" id="searchByKgOfProducts" ng-model="searchByKgOfProducts" placeholder="Search by kg of products">
+                    <input class="form-control" type="number" name="searchByKgOfProducts" id="searchByKgOfProducts" ng-model="searchByKgOfProducts" placeholder="Search by kg of products">
                 </th>
                 <th>
                     Price of products
-                    <input type="number" name="searchByPriceOfProducts" id="searchByPriceOfProducts" ng-model="searchByPriceOfProducts" placeholder="Search by price">
+                    <input class="form-control" type="number" name="searchByPriceOfProducts" id="searchByPriceOfProducts" ng-model="searchByPriceOfProducts" placeholder="Search by price">
                 </th>
                 <th>
                     Date of entry on the products
-                    <input type="datetime-local" name="searchByDateOfProducts" id="searchByDateOfProducts" ng-model="searchByDateOfProducts" placeholder="Search by Date of entry">
+                    <input class="form-control" type="text" name="searchByDateOfProducts" id="searchByDateOfProducts" ng-model="searchByDateOfProducts" placeholder="Search by Date of entry">
                 </th>
                 <th><i class="fa-solid fa-pen"></i>Edit</th>
                 <th><i class="fa-solid fa-trash-can"></i>Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="proizvod in proizvodi | filter:{prodazba_datum:searchByDateOfSale,promet:searchByMoneyOfSale,prodadeno_kg:searchBySoldOfSale,rasipano_kg:searchBySpoiledOfSale,rabotnik_id:searchByWorkerIdOfSale}">
+            <tr ng-repeat="proizvod in proizvodi | filter:{ime:searchByNameOfProducts,tip:searchByTypeOfProducts,kg:searchByKgOfProducts,cena:searchByPriceOfProducts,datum_priem:searchByDateOfProducts}">
                 <td>{{proizvod.proizvodi_id}}</td>
                 <td>{{proizvod.ime}}</td>
                 <td>{{proizvod.tip}}</td>

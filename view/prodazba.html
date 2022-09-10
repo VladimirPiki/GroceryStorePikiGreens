@@ -8,23 +8,29 @@
                 <th>Sale ID</th>
                 <th>
                     Date of sale
-                    <input type="date" name="searchByDateOfSale" id="searchByDateOfSale" ng-model="searchByDateOfSale" placeholder="Search by date">
+                    <input class="form-control" type="text" name="searchByDateOfSale" id="searchByDateOfSale" ng-model="searchByDateOfSale" placeholder="Search by date">
                 </th>
                 <th>
                     Money from the sale
-                    <input type="number" name="searchByMoneyOfSale" id="searchByMoneyOfSale" ng-model="searchByMoneyOfSale" placeholder="Search by money of sale">
+                    <input class="form-control" type="number" name="searchByMoneyOfSale" id="searchByMoneyOfSale" ng-model="searchByMoneyOfSale" placeholder="Search by money of sale">
                 </th>
                 <th>
                     Sold products in kg
-                    <input type="number" name="searchBySoldOfSale" id="searchBySoldOfSale" ng-model="searchBySoldOfSale" placeholder="Search by sold of sale">
+                    <input class="form-control" type="number" name="searchBySoldOfSale" id="searchBySoldOfSale" ng-model="searchBySoldOfSale" placeholder="Search by sold of sale">
                 </th>
                 <th>
                     Spoiled products in kg
-                    <input type="number" name="searchBySpoiledOfSale" id="searchBySpoiledOfSale" ng-model="searchBySpoiledOfSale" placeholder="Search by spoiled of sale">
+                    <input class="form-control" type="number" name="searchBySpoiledOfSale" id="searchBySpoiledOfSale" ng-model="searchBySpoiledOfSale" placeholder="Search by spoiled of sale">
                 </th>
                 <th>
                     Worker of the day ID
-                    <input type="number" name="searchByWorkerIdOfSale" id="searchByWorkerIdOfSale" ng-model="searchByWorkerIdOfSale" placeholder="Search by WorkerID">
+                    <!--<input class="form-control" type="number" name="searchByWorkerIdOfSale" id="searchByWorkerIdOfSale" ng-model="searchByWorkerIdOfSale" placeholder="Search by WorkerID">-->
+                    <select class="form-control" id="searchByWorkerIdOfSale" name="searchByWorkerIdOfSale" ng-model="searchByWorkerIdOfSale">
+                        <option value="">Choose option</option>
+                        <option ng-repeat="rabotnici in rabotnik" value="{{rabotnici.rabotnik_id}}" >
+                            {{rabotnici.rabotnik_id}} -- {{rabotnici.datum}} -- {{rabotnici.ime}} {{rabotnici.prezime}} -- {{rabotnici.grad}}
+                        </option>
+                    </select>
                 </th>
 
                 <th><i class="fa-solid fa-pen"></i>Edit</th>

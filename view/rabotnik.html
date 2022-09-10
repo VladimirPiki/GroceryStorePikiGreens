@@ -8,19 +8,31 @@
                 <th>Worker ID</th>
                 <th>
                     Date
-                    <input type="date" name="searchByDateOfWorker" id="searchByDateOfWorker" ng-model="searchByDateOfWorker" placeholder="Search by Worker ID">
+                    <input class="form-control" type="text" name="searchByDateOfWorker" id="searchByDateOfWorker" ng-model="searchByDateOfWorker" placeholder="Search by Worker ID">
                 </th>
                 <th>
                     Shift
-                    <input type="text" name="searchByShiftOfWorker" id="searchByShiftOfWorker" ng-model="searchByShiftOfWorker" placeholder="Search by shift">
+                    <input class="form-control" type="text" name="searchByShiftOfWorker" id="searchByShiftOfWorker" ng-model="searchByShiftOfWorker" placeholder="Search by shift">
                 </th>
                 <th>
                     Shop ID
-                    <input type="number" name="searchByShopIdOfWorker" id="searchByShopIdOfWorker" ng-model="searchByShopIdOfWorker" placeholder="Search by shop id">
+                   <!--<input class="form-control" type="number" name="searchByShopIdOfWorker" id="searchByShopIdOfWorker" ng-model="searchByShopIdOfWorker" placeholder="Search by shop id">-->
+                    <select class="form-control" id="searchByShopIdOfWorker" name="searchByShopIdOfWorker" ng-model="searchByShopIdOfWorker">
+                        <option value="">Choose option</option>
+                        <option ng-repeat="dukan in dukani" value="{{dukan.dukani_id}}" >
+                            {{dukan.dukani_id}} || {{dukan.adresa}} - {{dukan.grad}}
+                        </option>
+                    </select>
                 </th>
                 <th>
                     Employees ID
-                    <input type="number" name="searchByEmployeesIdOfWorker" id="searchByEmployeesIdOfWorker" ng-model="searchByEmployeesIdOfWorker" placeholder="Search by Employees ID">
+                   <!--<input class="form-control" type="number" name="searchByEmployeesIdOfWorker" id="searchByEmployeesIdOfWorker" ng-model="searchByEmployeesIdOfWorker" placeholder="Search by Employees ID">-->
+                    <select class="form-control" id="searchByEmployeesIdOfWorker" name="searchByEmployeesIdOfWorker" ng-model="searchByEmployeesIdOfWorker">
+                        <option value="">Choose option</option>
+                        <option ng-repeat="vraboten in vraboteni" value="{{vraboten.vraboteni_id}}" >
+                            {{vraboten.vraboteni_id}} || {{vraboten.ime}} {{vraboten.prezime}} - {{vraboten.grad}}
+                        </option>
+                    </select>
                 </th>
                 <th><i class="fa-solid fa-pen"></i>Edit</th>
                 <th><i class="fa-solid fa-trash-can"></i>Delete</th>

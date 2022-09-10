@@ -54,7 +54,11 @@ switch ($table_name){
                     "promet" => $row["promet"],
                     "prodadeno_kg" => $row["prodadeno_kg"],
                     "rasipano_kg" => $row["rasipano_kg"],
-                    "rabotnik_id" => $row["rabotnik_id"]
+                    "rabotnik_id" => $row["rabotnik_id"],
+                    "datum" => $row["datum"],
+                    "smena" => $row["smena"],
+                    "dukani_id" => $row["dukani_id"],
+                    "vraboteni_id" => $row["vraboteni_id"]
                 );
                 }
     break;
@@ -99,7 +103,14 @@ switch ($table_name){
             "datum" => $row["datum"],
             "smena" => $row["smena"],
             "dukani_id" => $row["dukani_id"],
-            "vraboteni_id" => $row["vraboteni_id"]
+            "adresa" => $row["adresa"],
+            "telefon" => $row["telefon"],
+            "grad" => $row["grad"],
+            "vraboteni_id" => $row["vraboteni_id"],
+            "ime" => $row["ime"],
+            "prezime" => $row["prezime"],
+            "grad" => $row["grad"],
+            "plata" => $row["plata"]
         );
         }
     break;
