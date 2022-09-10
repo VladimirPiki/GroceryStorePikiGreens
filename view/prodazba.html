@@ -1,29 +1,78 @@
-<h3>Продажба</h3>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>dres_id</th>
-            <th>ime</th>
-            <th>prezime</th>
-            <th>pozicija</th>
-            <th>godini</th>
-            <th>plata_denari</th>
-            <th>income_id</th>
-            <th>edit</th>
-            <th>delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Mice</td>
-            <td>Dimov</td>
-            <td>Goalkeeper</td>
-            <td>1997</td>
-            <td>100000.000000</td>
-            <td>03</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+<BR><BR><BR></BR></BR></BR>
+<div class="table-responsive myBorderDetails myGreenColor">
+   
+    <table class="table table-striped">
+        <h3 class="text-center">Sale</h3>
+        <thead>
+            <tr>
+                <th>Sale ID</th>
+                <th>
+                    Date of sale
+                    <input type="date" name="searchByDateOfSale" id="searchByDateOfSale" ng-model="searchByDateOfSale" placeholder="Search by date">
+                </th>
+                <th>
+                    Money from the sale
+                    <input type="number" name="searchByMoneyOfSale" id="searchByMoneyOfSale" ng-model="searchByMoneyOfSale" placeholder="Search by money of sale">
+                </th>
+                <th>
+                    Sold products in kg
+                    <input type="number" name="searchBySoldOfSale" id="searchBySoldOfSale" ng-model="searchBySoldOfSale" placeholder="Search by sold of sale">
+                </th>
+                <th>
+                    Spoiled products in kg
+                    <input type="number" name="searchBySpoiledOfSale" id="searchBySpoiledOfSale" ng-model="searchBySpoiledOfSale" placeholder="Search by spoiled of sale">
+                </th>
+                <th>
+                    Worker of the day ID
+                    <input type="number" name="searchByWorkerIdOfSale" id="searchByWorkerIdOfSale" ng-model="searchByWorkerIdOfSale" placeholder="Search by WorkerID">
+                </th>
+
+                <th><i class="fa-solid fa-pen"></i>Edit</th>
+                <th><i class="fa-solid fa-trash-can"></i>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="prodazbi in prodazba | filter:{prodazba_datum:searchByDateOfSale,promet:searchByMoneyOfSale,prodadeno_kg:searchBySoldOfSale,rasipano_kg:searchBySpoiledOfSale,rabotnik_id:searchByWorkerIdOfSale}">
+                <td>{{prodazbi.prodazba_id}}</td>
+                <td>{{prodazbi.prodazba_datum}}</td>
+                <td>{{prodazbi.promet}}</td>
+                <td>{{prodazbi.prodadeno_kg}}</td>
+                <td>{{prodazbi.rasipano_kg}}</td>
+                <td>{{prodazbi.rabotnik_id}}</td>
+                <td title="Edit"><i class="fa-solid fa-pen"></i></td>
+                <td title="Delete {{prodazbi.prodazba_id}} || {{prodazbi.prodazba_datum}} || {{prodazbi.promet}}">
+                    <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
+                </td>
+             </tr>
+         </tbody>
+ 
+     </table>
+ </div>
+ 
+ 
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+   
+         <!-- Modal Header -->
+         <div class="modal-header myBtn">
+           <h4 class="modal-title">Attention!!!</h4>
+           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+         </div>
+   
+         <!-- Modal body -->
+         <div class="modal-body myBtn">
+            Are you sure you want to delete the Sale on a {{prodazba[getIndex].prodazba_datum}}???
+         </div>
+   
+         <!-- Modal footer -->
+         <div class="modal-footer bg-light">
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('prodazba',prodazba[getIndex].prodazba_id)">Yes</button>
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
+           
+         </div>
+   
+       </div>
+     </div>
+   </div>

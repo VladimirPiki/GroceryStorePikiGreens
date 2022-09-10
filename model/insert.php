@@ -5,12 +5,16 @@
  * @link 
  */
 
+$data=json_decode(file_get_contents("php://input"));
+var_dump($data);
+
+
  require_once "../lib/class_database_piljara.php";
  //           class name    __construct
  $objDB = new   DB            ();
 
 //za koja tabela se raboti
-$table_name="vraboteni";
+$table_name=$data[0]->table_name;
 
 switch ($table_name){
 
@@ -23,9 +27,9 @@ switch ($table_name){
         $objDukani = new DukaniDAO($objDB);
 
         //setters POJO
-        $objDukani->setAdresa('Ulica Goce Delcev bb');
-        $objDukani->setTelefon(75228444);
-        $objDukani->setGrad('Skopje');
+        $objDukani->setAdresa($data[0]->adresa);
+        $objDukani->setTelefon($data[0]->telefon);
+        $objDukani->setGrad($data[0]->grad);
 
         //DAO
         $objDukani->insertDukani();

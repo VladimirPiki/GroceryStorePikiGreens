@@ -63,6 +63,7 @@ class DukaniDAO extends Dukani
     public function selectDukani()
     {
         // TODO implement here
+        return $this->database ->selectRow($this->table_name);
     }
 
     /**

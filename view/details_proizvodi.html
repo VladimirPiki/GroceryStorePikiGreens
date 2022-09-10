@@ -4,25 +4,34 @@
   <form name="myForm">
     <div class="mb-3 mt-3">
       <label for="ime" class="form-label">Name of products</label>
-      <input type="text" class="form-control" placeholder="Enter name of products"  id="ime" name="ime">
+      <span class="alert alert-danger" ng-show="myForm.ime.$invalid">Enter a valid name of products with at least 3 characters!!!</span>
+      <input type="text" class="form-control" placeholder="Enter name of products"  id="ime" name="ime" ng-minlength="3" ng-model="ime">
     </div>
     <div class="mb-3">
       <label for="tip" class="form-label">Type of products</label>
-      <input type="text" class="form-control"  placeholder="Enter type of products"  id="tip" name="tip">
+      <span class="alert alert-danger" ng-show="myForm.tip.$invalid">Enter a valid type of zelencuk or ovoshje!!!</span>
+    <!-- <input type="text" class="form-control"  placeholder="Enter type of products"  id="tip" name="tip" ng-model="tip">-->
+    <select name="tip" id="tip" ng-model="tip">
+      <option value="tip">zelencuk</option>
+      <option value="tip">ovoshje</option>
+    </select>
     </div>
     <div class="mb-3">
       <label for="kg" class="form-label">Kg of products</label>
-      <input type="number" class="form-control"  placeholder="Enter kg of products"  id="kg" name="kg">
+      <span class="alert alert-danger" ng-show="myForm.kg.$invalid">Enter a price of products with at least 1 characters!!!</span>
+      <input type="number" class="form-control"  placeholder="Enter kg of products"  id="kg" name="kg"  ng-minlength="1" ng-model="kg">
     </div>
     <div class="mb-3">
         <label for="cena" class="form-label">Price of products</label>
-        <input type="number" class="form-control"  placeholder="Enter price of products"  id="cena" name="cena">
+        <span class="alert alert-danger" ng-show="myForm.cena.$invalid">Enter a price of products with at least 1 characters!!!</span>
+        <input type="number" class="form-control"  placeholder="Enter price of products"  id="cena" name="cena" ng-minlength="1" ng-model="cena">
     </div>
     <div class="mb-3">
         <label for="datum_priem" class="form-label">Date of entry on the products</label>
-        <input type="datetime-local" class="form-control"  placeholder="Enter date of entry on the products"  id="datum_priem" name="datum_priem">
+        <span class="alert alert-danger" ng-show="myForm.datum_priem.$invalid">Enter valid date and time!!!</span>
+        <input type="datetime-local" class="form-control"  placeholder="Enter date of entry on the products"  id="datum_priem" name="datum_priem" ng-model="datum_priem" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2222-12-31T00:00:00" required>
     </div>
-      <button type="button" class="btn btn-light">Save</button>
+      <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.tip.$valid && myForm.kg.$valid && myForm.cena.$valid && myForm.datum_priem.$valid) ? function_proizvodi(ime,tip,kg,cena,datum_priem) : erorr()">Save</button>
   </form>
 </div>
 <br><br><br><br><br><br>

@@ -1,19 +1,25 @@
-<br><br><br>
-<div class="mt-5 mx-3 px-3 py-3  myBorderDetails myGreenColor">
-  <h1 class="text-center">Enter your Shop</h1>
-  <form name="myForm">
-      <div class="mb-3 ">
-        <label for="adresa" class="form-label">Adress</label>
-        <input type="text" class="form-control" placeholder="Enter adress"  id="adresa" name="adresa">
-      </div>
-      <div class="mb-3">
-        <label for="telefon" class="form-label">Phone</label>
-        <input type="number" class="form-control"  placeholder="Enter phone"  id="telefon" name="telefon">
-      </div>
-      <div class="mb-3">
-          <label for="grad" class="form-label">City</label>
-          <input type="text" class="form-control"  placeholder="Enter City"  id="grad" name="grad">
-      </div>
-      <button type="button" class="btn btn-light">Save</button>
-  </form>
-</div>
+<br><br><br><br><br><br><br><br>
+<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
+<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+
+  <div class="mt-5 mx-3 px-3 py-3  myBorderDetails myGreenColor">
+    <h1 class="text-center">Enter your Shop</h1>
+    <form name="myForm">
+        <div class="mb-3 ">
+          <label for="adresa" class="form-label">Adress</label>
+          <span class="alert alert-danger" ng-show="myForm.adresa.$invalid">Enter a valid address with at least 3 characters!!!</span>
+          <input type="text" class="form-control" placeholder="Enter address"  id="adresa" name="adresa"  ng-minlength="3" ng-model="adresa">
+        </div>
+        <div class="mb-3">
+          <label for="telefon" class="form-label">Phone</label>
+          <span class="alert alert-danger" ng-show="myForm.telefon.$invalid">Enter a valid phone number!!!</span>
+          <input type="number" class="form-control"  placeholder="Enter phone 07X XXX XXX"  id="telefon" name="telefon"  ng-min="07" ng-minlength="9" ng-maxlength="9" ng-model="telefon">
+        </div>
+        <div class="mb-3">
+            <label for="grad" class="form-label">City</label>
+            <span class="alert alert-danger" ng-show="myForm.city.$invalid">Enter a valid city with at least 4 characters!!!</span>
+            <input type="text" class="form-control"  placeholder="Enter city"  id="grad" name="grad"  ng-minlength="4" ng-model="grad">
+        </div>
+        <button type="button" class="btn btn-light" ng-click="(myForm.adresa.$valid && myForm.telefon.$valid && myForm.city.$valid) ? function_dukani(adresa,telefon,grad) : erorr()">Save</button>
+    </form>
+  </div>

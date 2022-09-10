@@ -24,7 +24,7 @@
 		  $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
 		  // set the PDO error mode to exception
 		  $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		  echo "Connected successfully";
+		  //echo "Connected successfully";
 		  $statement  = $this->conn->prepare("SET NAMES 'utf8'");
 		  $statement->execute();
 		  ini_set('default_charset', 'utf-8');

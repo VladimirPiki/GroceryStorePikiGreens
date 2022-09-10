@@ -1,25 +1,55 @@
 
-<br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
+<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
+<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+
+
 <div class="mt-5 mx-3 px-3 py-3  myBorderDetails myGreenColor">
   <h1 class="text-center">Enter your Worker of the day</h1>
   <form name="myForm">
     <div class="mb-3 mt-3">
       <label for="datum" class="form-label">Date</label>
-      <input type="date" class="form-control" placeholder="Enter datum"  id="datum" name="datum">
+      <span class="alert alert-danger" ng-show="myForm.datum.$invalid">Enter valid date !!!</span>
+      <input type="date" class="form-control" placeholder="Enter datum"  id="datum" name="datum" ng-model="datum" placeholder="yyyy-MM-dd" min="2000-12-31" max="2222-12-31" required>
     </div>
     <div class="mb-3">
       <label for="smena" class="form-label">Shift</label>
-      <input type="text" class="form-control"  placeholder="Enter smena"  id="smena" name="smena">
+      <span class="alert alert-danger" ng-show="myForm.smena.$invalid">Enter valid date !!!</span>
+      <input type="text" class="form-control"  placeholder="Enter smena"  id="smena" name="smena" ng-model="smena">
+      <select name="smena" id="smena" ng-model="smena">
+        <option value="smena">1</option>
+        <option value="smena">2</option>
+        <option value="smena">sd</option>
+        <option value="smena">go</option>
+        <option value="smena">bo</option>
+        <option value="smena">po</option>
+      </select>
     </div>
     <div class="mb-3">
         <label for="dukani_id" class="form-label">Shop ID</label>
-        <input type="number" class="form-control"  placeholder="Enter dukani_id"  id="dukani_id" name="dukani_id">
+        <input type="number" class="form-control"  placeholder="Enter dukani_id"  id="dukani_id" name="dukani_id" ng-model="dukani_id">
+                  <!--
+                <select class="form-control" id="income_id" name="income_id" ng-model="income_id">
+                    <option  value="">Изберете опции</option>
+                    <option ng-repeat="incomes in income" value="{{incomes.income_id}}">
+                      {{incomes.income_id}} || {{incomes.ime}} {{incomes.prezime}}  ||  {{incomes.pozicija}}
+                    </option>
+                </select>
+        -->
     </div>
     <div class="mb-3">
         <label for="vraboteni_id" class="form-label">Employees ID</label>
-        <input type="number" class="form-control"  placeholder="Enter vraboteni_id"  id="vraboteni_id" name="vraboteni_id">
+        <input type="number" class="form-control"  placeholder="Enter vraboteni_id"  id="vraboteni_id" name="vraboteni_id" ng-model="vraboteni_id">
+                  <!--
+                <select class="form-control" id="income_id" name="income_id" ng-model="income_id">
+                    <option  value="">Изберете опции</option>
+                    <option ng-repeat="incomes in income" value="{{incomes.income_id}}">
+                      {{incomes.income_id}} || {{incomes.ime}} {{incomes.prezime}}  ||  {{incomes.pozicija}}
+                    </option>
+                </select>
+        -->
     </div>
-      <button type="button" class="btn btn-light">Save</button>
+      <button type="button" class="btn btn-light" ng-click="(myForm.datum.$valid && myForm.smena.$valid) ? function_rabotnik=function(datum,smena,dukani_id,vraboteni_id) : erorr()">Save</button>
   </form>
 </div>
 <br><br><br><br><br><br>

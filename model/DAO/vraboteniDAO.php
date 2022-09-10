@@ -69,6 +69,7 @@ class VraboteniDAO extends Vraboteni
     public function selectVraboteni()
     {
         // TODO implement here
+        return $this->database ->selectRow($this->table_name);
     }
 
     /**

@@ -1,29 +1,77 @@
-<h3>Производи</h3>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>dres_id</th>
-            <th>ime</th>
-            <th>prezime</th>
-            <th>pozicija</th>
-            <th>godini</th>
-            <th>plata_denari</th>
-            <th>income_id</th>
-            <th>edit</th>
-            <th>delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Mice</td>
-            <td>Dimov</td>
-            <td>Goalkeeper</td>
-            <td>1997</td>
-            <td>100000.000000</td>
-            <td>03</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+<BR><BR><BR></BR></BR></BR>
+<div class="table-responsive myBorderDetails myGreenColor">
+   
+    <table class="table table-striped">
+        <h3 class="text-center">Products</h3>
+        <thead>
+            <tr>
+                <th>Products ID</th>
+                <th>
+                    Name of products
+                    <input type="text" name="searchByNameOfProducts" id="searchByNameOfProducts" ng-model="searchByNameOfProducts" placeholder="Search by name">
+                </th>
+                <th>
+                    Type of products
+                    <input type="text" name="searchByTypeOfProducts" id="searchByTypeOfProducts" ng-model="searchByTypeOfProducts" placeholder="Search by type">
+                </th>
+                <th>
+                    Kg of products
+                    <input type="number" name="searchByKgOfProducts" id="searchByKgOfProducts" ng-model="searchByKgOfProducts" placeholder="Search by kg of products">
+                </th>
+                <th>
+                    Price of products
+                    <input type="number" name="searchByPriceOfProducts" id="searchByPriceOfProducts" ng-model="searchByPriceOfProducts" placeholder="Search by price">
+                </th>
+                <th>
+                    Date of entry on the products
+                    <input type="datetime-local" name="searchByDateOfProducts" id="searchByDateOfProducts" ng-model="searchByDateOfProducts" placeholder="Search by Date of entry">
+                </th>
+                <th><i class="fa-solid fa-pen"></i>Edit</th>
+                <th><i class="fa-solid fa-trash-can"></i>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="proizvod in proizvodi | filter:{prodazba_datum:searchByDateOfSale,promet:searchByMoneyOfSale,prodadeno_kg:searchBySoldOfSale,rasipano_kg:searchBySpoiledOfSale,rabotnik_id:searchByWorkerIdOfSale}">
+                <td>{{proizvod.proizvodi_id}}</td>
+                <td>{{proizvod.ime}}</td>
+                <td>{{proizvod.tip}}</td>
+                <td>{{proizvod.kg}}</td>
+                <td>{{proizvod.cena}}</td>
+                <td>{{proizvod.datum_priem}}</td>
+                <td title="Edit"><i class="fa-solid fa-pen"></i></td>
+                <td title="Delete {{proizvod.proizvodi_id}} || {{proizvod.ime}}">
+                    <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
+                </td>
+             </tr>
+         </tbody>
+ 
+     </table>
+ </div>
+ 
+ 
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+   
+         <!-- Modal Header -->
+         <div class="modal-header myBtn">
+           <h4 class="modal-title">Attention!!!</h4>
+           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+         </div>
+   
+         <!-- Modal body -->
+         <div class="modal-body myBtn">
+            Are you sure you want to delete the Products {{proizvodi[getIndex].ime}}???
+         </div>
+   
+         <!-- Modal footer -->
+         <div class="modal-footer bg-light">
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('proizvodi',proizvodi[getIndex].proizvodi_id)">Yes</button>
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
+           
+         </div>
+   
+       </div>
+     </div>
+   </div>

@@ -69,6 +69,7 @@ class RabotnikDAO extends Rabotnik
     public function selectRabotnik()
     {
         // TODO implement here
+        return $this->database ->selectRow($this->table_name);
     }
 
     /**

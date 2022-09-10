@@ -64,6 +64,7 @@ class ProizvodiDAO extends Proizvodi
     public function selectProizvodi()
     {
         // TODO implement here
+        return $this->database ->selectRow($this->table_name);
     }
 
     /**

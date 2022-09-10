@@ -1,29 +1,72 @@
-<h3>Вработени</h3>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>dres_id</th>
-            <th>ime</th>
-            <th>prezime</th>
-            <th>pozicija</th>
-            <th>godini</th>
-            <th>plata_denari</th>
-            <th>income_id</th>
-            <th>edit</th>
-            <th>delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Mice</td>
-            <td>Dimov</td>
-            <td>Goalkeeper</td>
-            <td>1997</td>
-            <td>100000.000000</td>
-            <td>03</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+<BR><BR><BR></BR></BR></BR>
+<div class="table-responsive myBorderDetails myGreenColor">
+   
+    <table class="table table-striped">
+        <h3 class="text-center">Employees</h3>
+        <thead>
+            <tr>
+                <th>Employees ID</th>
+                <th>
+                    Name
+                    <input type="text" name="searchByNameOfEmployees" id="searchByNameOfEmployees" ng-model="searchByNameOfEmployees" placeholder="Search by name">
+                </th>
+                <th>
+                    Lastname
+                    <input type="text" name="searchByLastnameOfEmployees" id="searchByLastnameOfEmployees" ng-model="searchByLastnameOfEmployees" placeholder="Search by lastname">
+                </th>
+                <th>
+                    City
+                    <input type="text" name="searchByCityOfEmployees" id="searchByCityOfEmployees" ng-model="searchByCityOfEmployees" placeholder="Search by city">
+                </th>
+                <th>
+                    Salary
+                    <input type="number" name="searchBySalaryOfEmployees" id="searchBySalaryOfEmployees" ng-model="searchBySalaryOfEmployees" placeholder="Search by price">
+                </th>
+                <th><i class="fa-solid fa-pen"></i>Edit</th>
+                <th><i class="fa-solid fa-trash-can"></i>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="vraboten in vraboteni | filter:{ime:searchByNameOfEmployees,prezime:searchByLastnameOfEmployees,grad:searchByCityOfEmployees,plata:searchBySalaryOfEmployees}">
+                <td>{{vraboten.vraboteni_id}}</td>
+                <td>{{vraboten.ime}}</td>
+                <td>{{vraboten.prezime}}</td>
+                <td>{{vraboten.grad}}</td>
+                <td>{{vraboten.plata}}</td>
+                <td title="Edit"><i class="fa-solid fa-pen"></i></td>
+                <td title="Delete {{vraboten.proizvodi_id}} || {{vraboten.ime}} {{vraboten.prezime}}">
+                    <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
+                </td>
+             </tr>
+         </tbody>
+ 
+     </table>
+ </div>
+ 
+ 
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+   
+         <!-- Modal Header -->
+         <div class="modal-header myBtn">
+           <h4 class="modal-title">Attention!!!</h4>
+           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+         </div>
+   
+         <!-- Modal body -->
+         <div class="modal-body myBtn">
+            Are you sure you want to delete the Employees {{vraboteni[getIndex].ime}} {{vraboteni[getIndex].prezime}} ???
+         </div>
+   
+         <!-- Modal footer -->
+         <div class="modal-footer bg-light">
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('vraboteni',vraboteni[getIndex].vraboteni_id)">Yes</button>
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
+           
+         </div>
+   
+       </div>
+     </div>
+   </div>

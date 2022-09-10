@@ -1,28 +1,40 @@
-<br><br><br>
+<br><br><br><br><br><br><br><br>
+<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
+<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+
 <div class="mt-5 mx-3 px-3 py-3  myBorderDetails myGreenColor">
   <h1 class="text-center">Enter your Sale</h1>
   <form name="myForm">
     <div class="mb-3 mt-3">
       <label for="prodazba_datum" class="form-label">Date of sale</label>
-      <input type="date" class="form-control"  placeholder="Enter date of sale"  id="prodazba_datum" name="prodazba_datum">
+      <span class="alert alert-danger" ng-show="myForm.prodazba_datum.$invalid">Enter valid date !!!</span>
+      <input type="date" class="form-control"  placeholder="Enter date of sale"  id="prodazba_datum" name="prodazba_datum" ng-model="prodazba_datum" placeholder="yyyy-MM-dd" min="2000-12-31" max="2222-12-31" required>
     </div>
     <div class="mb-3">
         <label for="promet" class="form-label">Money from the sale</label>
-        <input type="number" class="form-control"  placeholder="Enter money from the sale"  id="promet" name="promet">
+        <input type="number" class="form-control"  placeholder="Enter money from the sale"  id="promet" name="promet" ng-model="promet">
     </div>
     <div class="mb-3">
         <label for="prodadeno_kg" class="form-label">Sold products in kg</label>
-        <input type="number" class="form-control" placeholder="Enter sold products in kg"  id="prodadeno_kg" name="prodadeno_kg">
+        <input type="number" class="form-control" placeholder="Enter sold products in kg"  id="prodadeno_kg" name="prodadeno_kg" ng-model="prodadeno_kg">
       </div>
       <div class="mb-3">
         <label for="rasipano_kg" class="form-label">Spoiled products in kg</label>
-        <input type="number" class="form-control"  placeholder="Enter spoiled products in kg"  id="rasipano_kg" name="rasipano_kg">
+        <input type="number" class="form-control"  placeholder="Enter spoiled products in kg"  id="rasipano_kg" name="rasipano_kg" ng-model="rasipano_kg">
       </div>
       <div class="mb-3">
           <label for="rabotnik_id" class="form-label">Worker of the day ID</label>
-          <input type="number" class="form-control"  placeholder="Enter worker of the day"  id="rabotnik_id" name="rabotnik_id">
+          <input type="number" class="form-control"  placeholder="Enter worker of the day"  id="rabotnik_id" name="rabotnik_id" ng-model="rabotnik_id">
+          <!--
+                <select class="form-control" id="income_id" name="income_id" ng-model="income_id">
+                    <option  value="">Изберете опции</option>
+                    <option ng-repeat="incomes in income" value="{{incomes.income_id}}">
+                      {{incomes.income_id}} || {{incomes.ime}} {{incomes.prezime}}  ||  {{incomes.pozicija}}
+                    </option>
+                </select>
+        -->
       </div>
-      <button type="button" class="btn btn-light">Save</button>
+      <button type="button" class="btn btn-light" ng-click="(myForm.prodazba_datum.$valid) ? function_prodazba(prodazba_datum,promet,prodadeno_kg,rasipano_kg,rabotnik_id) : erorr()">Save</button>
   </form>
 </div>
 <br><br><br><br><br>

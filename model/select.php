@@ -9,8 +9,9 @@
  //           class name    __construct
  $objDB = new   DB            ();
 
-//za koja tabela se raboti
-$table_name="dukani";
+// ime na tabela
+$table_name=$_GET['table_name'];
+$data=[];
 
 switch ($table_name){
 
@@ -21,8 +22,18 @@ switch ($table_name){
         $objDukani = new DukaniDAO($objDB);
 
         //DAO
-        $objDukani->selectDukani();
+        $rezultat=$objDukani->selectDukani();
 
+        //var_dump($rezultat);
+
+        foreach($rezultat as $row){
+            $data[]=array(
+                "dukani_id" => $row["dukani_id"],
+                "adresa" => $row["adresa"],
+                "telefon" => $row["telefon"],
+                "grad" => $row["grad"]
+            );
+            }
     break;
 
     case "prodazba":
@@ -32,7 +43,20 @@ switch ($table_name){
         $objProdazba= new ProdazbaDAO($objDB);
         
         //DAO
-        $objProdazba->selectProdazba();
+        $rezultat=$objProdazba->selectProdazba();
+
+                //var_dump($rezultat);
+
+                foreach($rezultat as $row ){
+                    $data[]=array(
+                    "prodazba_id" => $row["prodazba_id"],
+                    "prodazba_datum" => $row["prodazba_datum"],
+                    "promet" => $row["promet"],
+                    "prodadeno_kg" => $row["prodadeno_kg"],
+                    "rasipano_kg" => $row["rasipano_kg"],
+                    "rabotnik_id" => $row["rabotnik_id"]
+                );
+                }
     break;
 
     case "proizvodi":
@@ -42,7 +66,20 @@ switch ($table_name){
         $objProizvodi = new ProizvodiDAO($objDB);
 
         //DAO
-        $objProizvodi ->selectProizvodi();
+        $rezultat=$objProizvodi ->selectProizvodi();
+
+        //var_dump($rezultat);
+
+        foreach($rezultat as $row ){
+            $data[]=array(
+            "proizvodi_id" => $row["proizvodi_id"],
+            "ime" => $row["ime"],
+            "tip" => $row["tip"],
+            "kg" => $row["kg"],
+            "cena" => $row["cena"],
+            "datum_priem" => $row["datum_priem"]
+        );
+        }
     break;
 
     case "rabotnik":
@@ -51,18 +88,41 @@ switch ($table_name){
         //Database connection
         $objRabotnik= new RabotnikDAO($objDB);
 
+
         //DAO
-        $objRabotnik ->selectRabotnik();
+        $rezultat=$objRabotnik ->selectRabotnik();
+       // var_dump($rezultat);
+
+        foreach($rezultat as $row ){
+            $data[]=array(
+            "rabotnik_id" => $row["rabotnik_id"],
+            "datum" => $row["datum"],
+            "smena" => $row["smena"],
+            "dukani_id" => $row["dukani_id"],
+            "vraboteni_id" => $row["vraboteni_id"]
+        );
+        }
     break;
 
     case "vraboteni":
-        require_once "DAO/vraboteniaDAO.php";//file path
+        require_once "DAO/vraboteniDAO.php";//file path
         
         //Database connection
         $objVraboteni = new VraboteniDAO($objDB);
 
         //DAO
-        $objVraboteni ->selectVraboteni();
+        $rezultat=$objVraboteni ->selectVraboteni();
+        //var_dump($rezultat);
+
+        foreach($rezultat as $row ){
+            $data[]=array(
+            "vraboteni_id" => $row["vraboteni_id"],
+            "ime" => $row["ime"],
+            "prezime" => $row["prezime"],
+            "grad" => $row["grad"],
+            "plata" => $row["plata"]
+        );
+        }
     break;
 
     default :
@@ -70,4 +130,5 @@ switch ($table_name){
     break;
 
 }
+echo json_encode($data);
 ?>

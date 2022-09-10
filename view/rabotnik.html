@@ -1,29 +1,72 @@
-<h3>Работник</h3>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>dres_id</th>
-            <th>ime</th>
-            <th>prezime</th>
-            <th>pozicija</th>
-            <th>godini</th>
-            <th>plata_denari</th>
-            <th>income_id</th>
-            <th>edit</th>
-            <th>delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Mice</td>
-            <td>Dimov</td>
-            <td>Goalkeeper</td>
-            <td>1997</td>
-            <td>100000.000000</td>
-            <td>03</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+<BR><BR><BR></BR></BR></BR>
+<div class="table-responsive myBorderDetails myGreenColor">
+   
+    <table class="table table-striped">
+        <h3 class="text-center">Worker</h3>
+        <thead>
+            <tr>
+                <th>Worker ID</th>
+                <th>
+                    Date
+                    <input type="date" name="searchByDateOfWorker" id="searchByDateOfWorker" ng-model="searchByDateOfWorker" placeholder="Search by Worker ID">
+                </th>
+                <th>
+                    Shift
+                    <input type="text" name="searchByShiftOfWorker" id="searchByShiftOfWorker" ng-model="searchByShiftOfWorker" placeholder="Search by shift">
+                </th>
+                <th>
+                    Shop ID
+                    <input type="number" name="searchByShopIdOfWorker" id="searchByShopIdOfWorker" ng-model="searchByShopIdOfWorker" placeholder="Search by shop id">
+                </th>
+                <th>
+                    Employees ID
+                    <input type="number" name="searchByEmployeesIdOfWorker" id="searchByEmployeesIdOfWorker" ng-model="searchByEmployeesIdOfWorker" placeholder="Search by Employees ID">
+                </th>
+                <th><i class="fa-solid fa-pen"></i>Edit</th>
+                <th><i class="fa-solid fa-trash-can"></i>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="rabotnici in rabotnik | filter:{datum:searchByDateOfWorker,smena:searchByShiftOfWorker,dukani_id:searchByShopIdOfWorker,vraboteni_id:searchByEmployeesIdOfWorker}">
+                <td>{{rabotnici.rabotnik_id}}</td>
+                <td>{{rabotnici.datum}}</td>
+                <td>{{rabotnici.smena}}</td>
+                <td>{{rabotnici.dukani_id}}</td>
+                <td>{{rabotnici.vraboteni_id}}</td>
+                <td title="Edit"><i class="fa-solid fa-pen"></i></td>
+                <td title="Delete {{rabotnici.rabotnik_id}} || {{rabotnici.datum}}">
+                    <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
+                </td>
+             </tr>
+         </tbody>
+ 
+     </table>
+ </div>
+ 
+ 
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+   
+         <!-- Modal Header -->
+         <div class="modal-header myBtn">
+           <h4 class="modal-title">Attention!!!</h4>
+           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+         </div>
+   
+         <!-- Modal body -->
+         <div class="modal-body myBtn">
+            Are you sure you want to delete the Worker on {{rabotnik[getIndex].datum}}???
+         </div>
+   
+         <!-- Modal footer -->
+         <div class="modal-footer bg-light">
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('rabotnik',rabotnik[getIndex].rabotnik_id)">Yes</button>
+           <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
+           
+         </div>
+   
+       </div>
+     </div>
+   </div>

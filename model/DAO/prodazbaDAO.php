@@ -64,6 +64,7 @@ class ProdazbaDAO extends Prodazba
     public function selectProdazba()
     {
         // TODO implement here
+        return $this->database ->selectRow($this->table_name);
     }
 
     /**

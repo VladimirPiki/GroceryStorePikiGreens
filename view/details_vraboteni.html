@@ -1,25 +1,32 @@
 
 <br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
+<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
+<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+
 <div class="mt-5 mx-3 px-3 py-3  myBorderDetails myGreenColor">
   <h1 class="text-center">Enter your Employees</h1>
   <form name="myForm">
     <div class="mb-3 mt-3">
       <label for="ime" class="form-label">Name</label>
-      <input type="text" class="form-control" placeholder="Enter name"  id="ime" name="ime">
+      <span class="alert alert-danger" ng-show="myForm.ime.$invalid">Enter a valid name with at least 3 characters!!!</span>
+      <input type="text" class="form-control" placeholder="Enter name"  id="ime" name="ime" ng-minlength="3" ng-model="ime">
     </div>
     <div class="mb-3">
       <label for="prezime" class="form-label">Lastname</label>
-      <input type="number" class="form-control"  placeholder="Enter lastname"  id="prezime" name="prezime">
+      <span class="alert alert-danger" ng-show="myForm.prezime.$invalid">Enter a valid lastname with at least 3 characters!!!</span>
+      <input type="number" class="form-control"  placeholder="Enter lastname"  id="prezime" name="prezime" ng-minlength="3" ng-model="prezime">
     </div>
     <div class="mb-3">
         <label for="grad" class="form-label">City</label>
-        <input type="text" class="form-control"  placeholder="Enter city"  id="grad" name="grad">
+        <span class="alert alert-danger" ng-show="myForm.city.$invalid">Enter a valid city with at least 3 characters!!!</span>
+        <input type="text" class="form-control"  placeholder="Enter city"  id="grad" name="grad" ng-minlength="3" ng-model="grad">
     </div>
     <div class="mb-3">
         <label for="plata" class="form-label">Salary</label>
-        <input type="number" class="form-control"  placeholder="Enter salary"  id="plata" name="plata">
+        <input type="number" class="form-control"  placeholder="Enter salary"  id="plata" name="plata" ng-model="plata">
     </div>
-      <button type="button" class="btn btn-light">Save</button>
+      <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.prezime.$valid && myForm.grad.$valid) ? function_vraboteni(ime,prezime,grad,plata) : erorr()">Save</button>
   </form>
 </div>
 <br><br><br><br><br><br>

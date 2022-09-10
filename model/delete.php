@@ -5,12 +5,18 @@
  * @link 
  */
 
+//
+$data = json_decode(file_get_contents("php://input"));
+var_dump($data);
+
 require_once "../lib/class_database_piljara.php";
 //           class name    __construct
 $objDB = new   DB            ();
 
 //za koja tabela se raboti
-$table_name="dukani";
+
+$table_name=$data[0]->table_name;
+$pk_value=$data[0]->pk_value;
 
 switch ($table_name){
 
@@ -21,7 +27,7 @@ switch ($table_name){
         $objDukani = new DukaniDAO($objDB);
 
         //setters POJO
-        $objDukani->setDukaniID(10);
+        $objDukani->setDukaniID($data[0]->pk_value);
 
         //DAO
         $objDukani->deleteDukani();
@@ -35,7 +41,7 @@ switch ($table_name){
         $objProdazba= new ProdazbaDAO($objDB);
 
         //setters POJO
-        $objProdazba->setProdazbaID(10);
+        $objProdazba->setProdazbaID($data[0]->pk_value);
 
         //DAO
         $objProdazba->deleteProdazba();
@@ -48,7 +54,7 @@ switch ($table_name){
         $objProizvodi = new ProizvodiDAO($objDB);
 
         //setters POJO
-        $objProizvodi ->setProizvodiID(15);
+        $objProizvodi ->setProizvodiID($data[0]->pk_value);
 
         //DAO
         $objProizvodi -> deleteProizvodi();
@@ -61,7 +67,7 @@ switch ($table_name){
         $objRabotnik= new RabotnikDAO($objDB);
 
         //setters POJO
-        $objRabotnik ->setRabotnikID(11);
+        $objRabotnik ->setRabotnikID($data[0]->pk_value);
 
         //DAO
         $objRabotnik ->deleteRabotnik();
@@ -74,7 +80,7 @@ switch ($table_name){
         $objVraboteni = new VraboteniDAO($objDB);
 
         //setters POJO
-        $objVraboteni ->setVraboteniID(9);
+        $objVraboteni ->setVraboteniID($data[0]->pk_value);
 
         //DAO
         $objVraboteni ->deleteVraboteni();
