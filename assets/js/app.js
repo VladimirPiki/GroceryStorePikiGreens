@@ -39,11 +39,11 @@ app.controller('myCtrl', function($scope,$http) {
       url : "model/"+file+".php",
       data: objData
     }).then(function mySuccess(_response) {
-      $scope.alert_success=true;
+      $scope.success_alert=true;
       $scope.error_alert=false;
     }, function myError(_response) {
       $scope.error_alert=true;
-      $scope.alert_success=false;
+      $scope.success_alert=false;
     });
   }
 
@@ -56,7 +56,7 @@ app.controller('myCtrl', function($scope,$http) {
 
   $scope.function_dukani=function(adresa,telefon,grad){
     objDukani=[];
-    objDukani.push({"adresa":adresa,"telefon":telefon,"grad":grad});
+    objDukani.push({"adresa":adresa,"telefon":telefon,"grad":grad,"table_name":"dukani"});
     console.log("objDukani");
     postData("insert",objDukani);
   };
@@ -64,7 +64,7 @@ app.controller('myCtrl', function($scope,$http) {
   $scope.function_prodazba=function(prodazba_datum,promet,prodadeno_kg,rasipano_kg,rabotnik_id)
   {
     var objProdazba=[];
-    objProdazba.push({"prodazba_datum":prodazba_datum,"promet":promet,"prodadeno_kg":prodadeno_kg,"rasipano_kg":rasipano_kg,"rabotnik_id":rabotnik_id});
+    objProdazba.push({"prodazba_datum":prodazba_datum,"promet":promet,"prodadeno_kg":prodadeno_kg,"rasipano_kg":rasipano_kg,"rabotnik_id":rabotnik_id,"table_name":"prodazba"});
     console.log(objProdazba);
     postData("insert",objProdazba);
   }
@@ -72,7 +72,7 @@ app.controller('myCtrl', function($scope,$http) {
   $scope.function_proizvodi=function(ime,tip,kg,cena,datum_priem)
   {
     var objProizvodi=[];
-    objProizvodi.push({"ime":ime,"tip":tip,"kg":kg,"cena":cena,"datum_priem":datum_priem});
+    objProizvodi.push({"ime":ime,"tip":tip,"kg":kg,"cena":cena,"datum_priem":datum_priem,"table_name":"proizvodi"});
     console.log(objProizvodi);
     postData("insert",objProizvodi);
   }
@@ -80,7 +80,7 @@ app.controller('myCtrl', function($scope,$http) {
   $scope.function_rabotnik=function(datum,smena,dukani_id,vraboteni_id)
   {
     var objRabotnik=[];
-    objRabotnik.push({"datum":datum,"smena":smena,"kg":kg,"dukani_id":dukani_id,"vraboteni_id":vraboteni_id});
+    objRabotnik.push({"datum":datum,"smena":smena,"kg":kg,"dukani_id":dukani_id,"vraboteni_id":vraboteni_id,"table_name":"rabotnik"});
     console.log(objRabotnik);
     postData("insert",objRabotnik);
   }
@@ -88,7 +88,7 @@ app.controller('myCtrl', function($scope,$http) {
   $scope.function_vraboteni=function(ime,prezime,grad,plata)
   {
     var objVraboteni=[];
-    objVraboteni.push({"ime":ime,"prezime":prezime,"grad":grad,"plata":plata});
+    objVraboteni.push({"ime":ime,"prezime":prezime,"grad":grad,"plata":plata,"table_name":"vraboteni"});
     console.log(objVraboteni);
     postData("insert",objVraboteni);
   }

@@ -1,4 +1,7 @@
 <br><br><br>
+<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
+<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+
 <div class="mt-5 mx-3 px-3 py-3  myBorderDetails myGreenColor">
   <h1 class="text-center">Enter your Products</h1>
   <form name="myForm">
@@ -11,9 +14,10 @@
       <label for="tip" class="form-label">Type of products</label>
       <span class="alert alert-danger" ng-show="myForm.tip.$invalid">Enter a valid type of zelencuk or ovoshje!!!</span>
     <!-- <input type="text" class="form-control"  placeholder="Enter type of products"  id="tip" name="tip" ng-model="tip">-->
-    <select name="tip" id="tip" ng-model="tip">
-      <option value="tip">zelencuk</option>
-      <option value="tip">ovoshje</option>
+    <select class="form-control" name="tip" id="tip" ng-model="tip" placeholder="Enter type of products">
+      <option value="">Choose option</option>
+      <option name="tip" id="tip" ng-model="tip">zelencuk</option>
+      <option name="tip" id="tip" ng-model="tip">ovoshje</option>
     </select>
     </div>
     <div class="mb-3">
@@ -29,7 +33,7 @@
     <div class="mb-3">
         <label for="datum_priem" class="form-label">Date of entry on the products</label>
         <span class="alert alert-danger" ng-show="myForm.datum_priem.$invalid">Enter valid date and time!!!</span>
-        <input type="datetime-local" class="form-control"  placeholder="Enter date of entry on the products"  id="datum_priem" name="datum_priem" ng-model="datum_priem" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2222-12-31T00:00:00" required>
+        <input type="datetime-local" class="form-control"  placeholder="Enter date of entry on the products"  id="datum_priem" name="datum_priem" ng-model="datum_priem" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2222-12-31T00:00:00">
     </div>
       <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.tip.$valid && myForm.kg.$valid && myForm.cena.$valid && myForm.datum_priem.$valid) ? function_proizvodi(ime,tip,kg,cena,datum_priem) : erorr()">Save</button>
   </form>

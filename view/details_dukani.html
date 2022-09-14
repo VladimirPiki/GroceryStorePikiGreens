@@ -17,9 +17,9 @@
         </div>
         <div class="mb-3">
             <label for="grad" class="form-label">City</label>
-            <span class="alert alert-danger" ng-show="myForm.city.$invalid">Enter a valid city with at least 4 characters!!!</span>
+            <span class="alert alert-danger" ng-show="myForm.grad.$invalid">Enter a valid city with at least 4 characters!!!</span>
             <input type="text" class="form-control"  placeholder="Enter city"  id="grad" name="grad"  ng-minlength="4" ng-model="grad">
         </div>
-        <button type="button" class="btn btn-light" ng-click="(myForm.adresa.$valid && myForm.telefon.$valid && myForm.city.$valid) ? function_dukani(adresa,telefon,grad) : erorr()">Save</button>
+        <button type="button" class="btn btn-light" ng-click="(myForm.adresa.$valid && myForm.telefon.$valid && myForm.grad.$valid) ? function_dukani(adresa,telefon,grad) : erorr()">Save</button>
     </form>
   </div>

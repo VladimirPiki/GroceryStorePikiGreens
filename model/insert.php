@@ -14,6 +14,7 @@ var_dump($data);
  $objDB = new   DB            ();
 
 //za koja tabela se raboti
+
 $table_name=$data[0]->table_name;
 
 switch ($table_name){
@@ -44,13 +45,17 @@ switch ($table_name){
         //Database connection
         $objProdazba= new ProdazbaDAO($objDB);
 
+         //Format time
+        $formatProdazbaDatum=date("Y-m-d",strtotime($data[0]->prodazba_datum));
+
         //setters POJO
+
         //$objProdazba->setProdazbaID(5);
-        $objProdazba->setProdazbaDatum('2022-08-18');
-        $objProdazba->setPromet(49970);
-        $objProdazba->setProdadenoKg(277,6);
-        $objProdazba->setRasipanoKg(18,1);
-        $objProdazba->setRabotnikID(4);
+        $objProdazba->setProdazbaDatum($formatProdazbaDatum);
+        $objProdazba->setPromet($data[0]->promet);
+        $objProdazba->setProdadenoKg($data[0]->prodadeno_kg);
+        $objProdazba->setRasipanoKg($data[0]->rasipano_kg);
+        $objProdazba->setRabotnikID($data[0]->rabotnik_id);
 
         //DAO
         $objProdazba->insertProdazba();
@@ -62,12 +67,15 @@ switch ($table_name){
         //Database connection
         $objProizvodi = new ProizvodiDAO($objDB);
 
+         //Format time
+         $formatProizvodiDatumPriem=date("Y-m-d H:i:s",strtotime($data[0]->datum_priem));
+
         //setters POJO
-        $objProizvodi->setIme('Mandarini');
-        $objProizvodi->setTip('ovoshje');
-        $objProizvodi->setKg(200,6);
-        $objProizvodi->setCena(19);
-        $objProizvodi->setDatumPriem("2022-08-14 13:00:00");
+        $objProizvodi->setIme($data[0]->ime);
+        $objProizvodi->setTip($data[0]->tip);
+        $objProizvodi->setKg($data[0]->kg);
+        $objProizvodi->setCena($data[0]->cena);
+        $objProizvodi->setDatumPriem($formatProizvodiDatumPriem);
 
         //DAO
         $objProizvodi ->insertProizvodi();
@@ -79,12 +87,16 @@ switch ($table_name){
         //Database connection
         $objRabotnik= new RabotnikDAO($objDB);
 
+         //Format time
+         $formatRabotnikDatum=date("Y-m-d",strtotime($data[0]->prodazba_datum));
+
         //setters POJO
+
         //$objRabotnik->setRabotnikID(4);
-        $objRabotnik->setDatum('2022-08-16');
-        $objRabotnik->setSmena(2);
-        $objRabotnik->setDukaniID(5);
-        $objRabotnik->setVraboteniID(4);
+        $objRabotnik->setDatum($formatRabotnikDatum);
+        $objRabotnik->setSmena($data[0]->smena);
+        $objRabotnik->setDukaniID($data[0]->dukani_id);
+        $objRabotnik->setVraboteniID($data[0]->vraboteni_id);
 
         //DAO
         $objRabotnik ->insertRabotnik();
@@ -97,10 +109,10 @@ switch ($table_name){
         $objVraboteni = new VraboteniDAO($objDB);
 
         //setters POJO
-        $objVraboteni ->setIme('Jovana');
-        $objVraboteni ->setPrezime('Mladenova');
-        $objVraboteni ->setGrad('Ohrid');
-        $objVraboteni ->setPlata(28500);
+        $objVraboteni ->setIme($data[0]->ime);
+        $objVraboteni ->setPrezime($data[0]->prezime);
+        $objVraboteni ->setGrad($data[0]->grad);
+        $objVraboteni ->setPlata($data[0]->plata);
 
         //DAO
         $objVraboteni ->insertVraboteni();
