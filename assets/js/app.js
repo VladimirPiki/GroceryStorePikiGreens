@@ -80,7 +80,7 @@ app.controller('myCtrl', function($scope,$http) {
   $scope.function_rabotnik=function(datum,smena,dukani_id,vraboteni_id)
   {
     var objRabotnik=[];
-    objRabotnik.push({"datum":datum,"smena":smena,"kg":kg,"dukani_id":dukani_id,"vraboteni_id":vraboteni_id,"table_name":"rabotnik"});
+    objRabotnik.push({"datum":datum,"smena":smena,"dukani_id":dukani_id,"vraboteni_id":vraboteni_id,"table_name":"rabotnik"});
     console.log(objRabotnik);
     postData("insert",objRabotnik);
   }

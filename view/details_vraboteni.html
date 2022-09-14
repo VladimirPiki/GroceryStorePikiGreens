@@ -15,11 +15,11 @@
     <div class="mb-3">
       <label for="prezime" class="form-label">Lastname</label>
       <span class="alert alert-danger" ng-show="myForm.prezime.$invalid">Enter a valid lastname with at least 3 characters!!!</span>
-      <input type="number" class="form-control"  placeholder="Enter lastname"  id="prezime" name="prezime" ng-minlength="3" ng-model="prezime">
+      <input type="text" class="form-control"  placeholder="Enter lastname"  id="prezime" name="prezime" ng-minlength="3" ng-model="prezime">
     </div>
     <div class="mb-3">
         <label for="grad" class="form-label">City</label>
-        <span class="alert alert-danger" ng-show="myForm.city.$invalid">Enter a valid city with at least 3 characters!!!</span>
+        <span class="alert alert-danger" ng-show="myForm.grad.$invalid">Enter a valid city with at least 3 characters!!!</span>
         <input type="text" class="form-control"  placeholder="Enter city"  id="grad" name="grad" ng-minlength="3" ng-model="grad">
     </div>
     <div class="mb-3">

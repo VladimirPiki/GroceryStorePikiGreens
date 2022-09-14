@@ -24,15 +24,12 @@
       </div>
       <div class="mb-3">
           <label for="rabotnik_id" class="form-label">Worker of the day ID</label>
-          <input type="number" class="form-control"  placeholder="Enter worker of the day"  id="rabotnik_id" name="rabotnik_id" ng-model="rabotnik_id">
-          <!--
-                <select class="form-control" id="income_id" name="income_id" ng-model="income_id">
-                    <option  value="">Изберете опции</option>
-                    <option ng-repeat="incomes in income" value="{{incomes.income_id}}">
-                      {{incomes.income_id}} || {{incomes.ime}} {{incomes.prezime}}  ||  {{incomes.pozicija}}
-                    </option>
-                </select>
-        -->
+          <select class="form-control" id="rabotnik_id" name="rabotnik_id" ng-model="rabotnik_id">
+            <option value="">Choose option</option>
+            <option ng-repeat="rabotnici in rabotnik" value="{{rabotnici.rabotnik_id}}" >
+                {{rabotnici.rabotnik_id}} -- {{rabotnici.datum}} -- {{rabotnici.ime}} {{rabotnici.prezime}} -- {{rabotnici.grad}}
+            </option>
+          </select>
       </div>
       <button type="button" class="btn btn-light" ng-click="(myForm.prodazba_datum.$valid) ? function_prodazba(prodazba_datum,promet,prodadeno_kg,rasipano_kg,rabotnik_id) : erorr()">Save</button>
   </form>

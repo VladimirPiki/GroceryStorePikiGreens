@@ -59,6 +59,21 @@ footer h5,h6{
 	border-radius: 50px 10px 50px 10px;
 	border: groove  10px white;
 }
+.myBtn{
+	background-color: red;
+	color: white;
+}
+.attention{
+	background-color: red;
+	color: black;
+}
+.attentionYellow{
+	background-color: yellow;
+	color: black;
+}
+.borderNone{
+	border: none;
+}
 /********************************************/
 
 /*********Responsive for all media********/

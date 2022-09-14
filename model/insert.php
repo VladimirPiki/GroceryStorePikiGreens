@@ -88,7 +88,7 @@ switch ($table_name){
         $objRabotnik= new RabotnikDAO($objDB);
 
          //Format time
-         $formatRabotnikDatum=date("Y-m-d",strtotime($data[0]->prodazba_datum));
+         $formatRabotnikDatum=date("Y-m-d",strtotime($data[0]->datum));
 
         //setters POJO
 

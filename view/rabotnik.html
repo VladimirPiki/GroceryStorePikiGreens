@@ -20,7 +20,7 @@
                     <select class="form-control" id="searchByShopIdOfWorker" name="searchByShopIdOfWorker" ng-model="searchByShopIdOfWorker">
                         <option value="">Choose option</option>
                         <option ng-repeat="dukan in dukani" value="{{dukan.dukani_id}}" >
-                            {{dukan.dukani_id}} || {{dukan.adresa}} - {{dukan.grad}}
+                            {{dukan.dukani_id}} -- {{dukan.adresa}} -- {{dukan.grad}}
                         </option>
                     </select>
                 </th>
@@ -30,7 +30,7 @@
                     <select class="form-control" id="searchByEmployeesIdOfWorker" name="searchByEmployeesIdOfWorker" ng-model="searchByEmployeesIdOfWorker">
                         <option value="">Choose option</option>
                         <option ng-repeat="vraboten in vraboteni" value="{{vraboten.vraboteni_id}}" >
-                            {{vraboten.vraboteni_id}} || {{vraboten.ime}} {{vraboten.prezime}} - {{vraboten.grad}}
+                            {{vraboten.vraboteni_id}} -- {{vraboten.ime}} {{vraboten.prezime}} -- {{vraboten.grad}}
                         </option>
                     </select>
                 </th>
@@ -46,7 +46,7 @@
                 <td>{{rabotnici.dukani_id}}</td>
                 <td>{{rabotnici.vraboteni_id}}</td>
                 <td title="Edit"><i class="fa-solid fa-pen"></i></td>
-                <td title="Delete {{rabotnici.rabotnik_id}} || {{rabotnici.datum}}">
+                <td title="Delete {{rabotnici.rabotnik_id}} -- {{rabotnici.datum}}">
                     <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
                 </td>
              </tr>

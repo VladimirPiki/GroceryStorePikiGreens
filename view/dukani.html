@@ -22,14 +22,14 @@
                 <th><i class="fa-solid fa-trash-can"></i>Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-light">
             <tr ng-repeat="dukan in dukani | filter:{adresa:searchByAdress,telefon:searchByPhone,grad:searchByCity}">
                 <td>{{dukan.dukani_id}}</td>
                 <td>{{dukan.adresa}}</td>
                 <td>{{dukan.telefon}}</td>
                 <td>{{dukan.grad}}</td>
                 <td title="Edit"><i class="fa-solid fa-pen"></i></td>
-                <td title="Delete {{dukan.dukani_id}} || {{dukan.adresa}} {{dukan.grad}}">
+                <td title="Delete {{dukan.dukani_id}} -- {{dukan.adresa}} -- {{dukan.grad}}">
                     <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
                 </td>
              </tr>
@@ -40,25 +40,25 @@
  
  
  <!-- The Modal -->
- <div class="modal" id="myModal">
-     <div class="modal-dialog">
-       <div class="modal-content">
+ <div class="modal borderNone" id="myModal">
+     <div class="modal-dialog borderNone">
+       <div class="modal-content borderNone">
    
          <!-- Modal Header -->
-         <div class="modal-header myBtn">
+         <div class="modal-header attention borderNone">
            <h4 class="modal-title">Attention!!!</h4>
            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
          </div>
    
          <!-- Modal body -->
-         <div class="modal-body myBtn">
-            Are you sure you want to delete the shop on {{dukani[getIndex].adresa}} in {{dukani[getIndex].city}}???
+         <div class="modal-body attentionYellow borderNone">
+            Are you sure you want to delete the shop on {{dukani[getIndex].adresa}} in {{dukani[getIndex].grad}}???
          </div>
    
          <!-- Modal footer -->
-         <div class="modal-footer bg-light">
-           <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('dukani',dukani[getIndex].dukani_id)">Yes</button>
-           <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
+         <div class="modal-footer attention borderNone">
+           <button type="button" class="btn " data-bs-dismiss="modal" ng-click="deleteRow('dukani',dukani[getIndex].dukani_id)">Yes</button>
+           <button type="button" class="btn " data-bs-dismiss="modal">Back</button>
            
          </div>
    
