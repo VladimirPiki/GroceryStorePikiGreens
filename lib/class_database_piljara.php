@@ -48,7 +48,6 @@
 	public function deleteRow($table_name,$pk_name,$pk_value){
 		$stmt=$this->conn->prepare("DELETE FROM $table_name 
 		WHERE $pk_name=$pk_value");
-		
 		$stmt->execute();
 
 	}
