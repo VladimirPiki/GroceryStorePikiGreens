@@ -9,80 +9,61 @@ require_once "POJO/dukani.php";
 
 class DukaniDAO extends Dukani
 {
-    /**
-     * Attributes class 
-     * */
-    private $table_name="dukani";
 
+    private $table_name="dukani";
     private $database=null;
     
-    
     /**
-     * Constructor Database 
+     * @param mixed $objDB
      */
     public function __construct($objDB)
     {
         $this->database=$objDB;
     }
-    
+
     /**
-     * Methods
+     * @return [type]
      */
     public function insertDukani()
     {
-        // TODO implement here
         $adresa=parent::getAdresa();
-
         $telefon=parent::getTelefon();
-        
         $grad=parent::getGrad();
-
-        $columns_name="adresa,telefon,grad";
         $columns_value="'$adresa',$telefon,'$grad'";
-
-        $this->database->insertRow($this->table_name,$columns_name,$columns_value);//class database
+        $this->database ->callStoredProcedure("_insert_dukani",$columns_value);  
     }
 
+
     /**
-     * Methods
+     * @return [type]
      */
     public function deleteDukani()
     {
-        // TODO implement here
         $dukani_id=parent::getDukaniID();
-
-        $pk_name="dukani_id";
         $pk_value=$dukani_id;
-
-        $this->database->deleteRow($this->table_name,$pk_name,$pk_value);//class database
+        $this->database ->callStoredProcedure("_delete_dukani",$pk_value);  
     }
 
     /**
-     * Methods
+     * @return [type]
      */
     public function selectDukani()
     {
-        // TODO implement here
-        return $this->database ->selectRow($this->table_name);
+        return $this->database ->selectRowStoredProcedure("_select_dukani");
     }
 
     /**
-     * Methods
+     * @return [type]
      */
     public function updateDukani()
     {
-        // TODO implement here
         $dukani_id=parent::getDukaniID();
         $adresa=parent::getAdresa();
         $telefon=parent::getTelefon();
         $grad=parent::getGrad();
-
         $columns="adresa='$adresa',telefon=$telefon,grad='$grad'";
-
         $condition="dukani_id=$dukani_id";
-
         $this->database->updateRow($this->table_name,$columns,$condition);//class database
-      
     }
 
 }

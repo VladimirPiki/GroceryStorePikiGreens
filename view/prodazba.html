@@ -43,7 +43,7 @@
                 <td>{{prodazbi.promet}}</td>
                 <td>{{prodazbi.prodadeno_kg}}</td>
                 <td>{{prodazbi.rasipano_kg}}</td>
-                <td>{{prodazbi.rabotnik_id}}</td>
+                <td>{{prodazbi.rabotnik_id}} -- {{prodazbi.ime}} {{prodazbi.prezime}} -- {{prodazbi.grad}}</td>
                 <td title="Edit"><i class="fa-solid fa-pen"></i></td>
                 <td title="Delete {{prodazbi.prodazba_id}} -- {{prodazbi.prodazba_datum}} -- {{prodazbi.promet}}">
                     <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
@@ -72,7 +72,7 @@
   
         <!-- Modal footer -->
         <div class="modal-footer bg-light">
-          <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('prodazba',prodazba[getIndex].prodazba_datum)">Yes</button>
+          <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('prodazba',prodazba[getIndex].prodazba_id)">Yes</button>
           <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
           
         </div>

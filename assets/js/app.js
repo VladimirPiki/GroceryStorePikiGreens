@@ -2,8 +2,6 @@ var app = angular.module('myApp', ["ngRoute"]);
 app.controller('myCtrl', function($scope,$http) {
 	$scope.error_alert=false;
   $scope.success_alert=false;
-  console.log("Ova e piljara");
-
 
   /////JSON/////
   $scope.dukani=[];

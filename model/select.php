@@ -58,7 +58,12 @@ switch ($table_name){
                     "datum" => $row["datum"],
                     "smena" => $row["smena"],
                     "dukani_id" => $row["dukani_id"],
-                    "vraboteni_id" => $row["vraboteni_id"]
+                    "grad" => $row["grad"],
+                    "vraboteni_id" => $row["vraboteni_id"],
+                    "ime" => $row["ime"],
+                    "prezime" => $row["prezime"],
+                    "grad" => $row["grad"],
+                    "plata" => $row["plata"]
                 );
                 }
     break;
