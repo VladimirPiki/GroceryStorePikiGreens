@@ -12,11 +12,17 @@ class VraboteniDAO extends Vraboteni
     private $table_name="vraboteni";
     private $database=null;
 
+    /**
+     * @param mixed $objDB
+     */
     public function __construct($objDB)
     {
         $this->database=$objDB;
     }
 
+    /**
+     * @return [type]
+     */
     public function insertVraboteni()
     {
         $ime=parent::getIme();
@@ -27,6 +33,9 @@ class VraboteniDAO extends Vraboteni
         $this->database ->callStoredProcedure("_insert_vraboteni",$columns_value); 
     }
 
+    /**
+     * @return [type]
+     */
     public function deleteVraboteni()
     {
         $vraboteni_id=parent::getVraboteniID();
@@ -34,11 +43,17 @@ class VraboteniDAO extends Vraboteni
         $this->database ->callStoredProcedure("_delete_vraboteni",$pk_value);  
     }
 
+    /**
+     * @return [type]
+     */
     public function selectVraboteni()
     {
         return $this->database ->selectRowStoredProcedure("_select_vraboteni");
     }
 
+    /**
+     * @return [type]
+     */
     public function updateVraboteni()
     {
         $vraboteni_id=parent::getVraboteniID();
