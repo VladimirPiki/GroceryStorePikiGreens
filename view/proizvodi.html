@@ -30,7 +30,7 @@
                 <th><i class="fa-solid fa-trash-can"></i>Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-light">
             <tr ng-repeat="proizvod in proizvodi | filter:{ime:searchByNameOfProducts,tip:searchByTypeOfProducts,kg:searchByKgOfProducts,cena:searchByPriceOfProducts,datum_priem:searchByDateOfProducts}">
                 <td>{{proizvod.proizvodi_id}}</td>
                 <td>{{proizvod.ime}}</td>
@@ -62,7 +62,7 @@
    
          <!-- Modal body -->
          <div class="modal-body myBtn">
-            Are you sure you want to delete the Products {{proizvodi[getIndex].ime}}???
+            Are you sure you want to delete the products {{proizvodi[getIndex].ime}}???
          </div>
    
          <!-- Modal footer -->

@@ -53,31 +53,30 @@
  
      </table>
  </div>
- 
- 
- <!-- The Modal -->
- <div class="modal borderNone" id="myModal">
-     <div class="modal-dialog borderNone">
-       <div class="modal-content borderNone">
-   
-         <!-- Modal Header -->
-         <div class="modal-header borderNone attention">
-           <h4 class="modal-title">Attention!!!</h4>
-           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-         </div>
-   
-         <!-- Modal body -->
-         <div class="modal-body borderNone attentionYellow">
+
+    <!-- The Modal -->
+ <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header myBtn">
+          <h4 class="modal-title">Attention!!!</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body myBtn">
             Are you sure you want to delete the sale on a {{prodazba[getIndex].prodazba_datum}}???
-         </div>
-   
-         <!-- Modal footer -->
-         <div class="modal-footer borderNone attention">
-           <button type="button" class="btn" data-bs-dismiss="modal" ng-click="deleteRow('prodazba',prodazba[getIndex].prodazba_id)">Yes</button>
-           <button type="button" class="btn" data-bs-dismiss="modal">Back</button>
-           
-         </div>
-   
-       </div>
-     </div>
-   </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('prodazba',prodazba[getIndex].prodazba_datum)">Yes</button>
+          <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
+          
+        </div>
+  
+      </div>
+    </div>
+  </div>

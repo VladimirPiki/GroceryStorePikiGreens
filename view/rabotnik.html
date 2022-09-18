@@ -38,7 +38,7 @@
                 <th><i class="fa-solid fa-trash-can"></i>Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-light">
             <tr ng-repeat="rabotnici in rabotnik | filter:{datum:searchByDateOfWorker,smena:searchByShiftOfWorker,dukani_id:searchByShopIdOfWorker,vraboteni_id:searchByEmployeesIdOfWorker}">
                 <td>{{rabotnici.rabotnik_id}}</td>
                 <td>{{rabotnici.datum}}</td>
@@ -69,7 +69,7 @@
    
          <!-- Modal body -->
          <div class="modal-body myBtn">
-            Are you sure you want to delete the Worker on {{rabotnik[getIndex].datum}}???
+            Are you sure you want to delete the worker {{rabotnik[getIndex].ime}} {{rabotnik[getIndex].prezime}} on {{rabotnik[getIndex].datum}}???
          </div>
    
          <!-- Modal footer -->
