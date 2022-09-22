@@ -1,40 +1,38 @@
 <div class="table-responsive myBorderDetails myGreenColor myMargin">
-   
     <table class="table table-striped">
         <h3 class="text-center">Shop</h3>
-        <thead>
-            <tr>
-                <th>Shop ID</th>
-                <th> 
-                    Adress
-                    <input class="form-control" type="text" name="searchByAdress" id="searchByAdress" ng-model="searchByAdress" placeholder="Search by adress">
-                </th>
-                <th>
-                    Phone 
-                    <input class="form-control" type="number" name="searchByPhone" id="searchByPhone" ng-model="searchByPhone" placeholder="Search by phone">
-                </th>
-                <th>
-                    Shop
-                    <input class="form-control" type="text" name="searchByCity" id="searchByCity" ng-model="searchByCity" placeholder="Search by city">
-                </th>
-                <th><i class="fa-solid fa-pen"></i>Edit</th>
-                <th><i class="fa-solid fa-trash-can"></i>Delete</th>
-            </tr>
-        </thead>
-        <tbody class="text-light">
-            <tr ng-repeat="dukan in dukani | filter:{adresa:searchByAdress,telefon:searchByPhone,grad:searchByCity}">
-                <td>{{dukan.dukani_id}}</td>
-                <td>{{dukan.adresa}}</td>
-                <td>{{dukan.telefon}}</td>
-                <td>{{dukan.grad}}</td>
-                <td title="Edit"><i class="fa-solid fa-pen"></i></td>
-                <td title="Delete {{dukan.dukani_id}} -- {{dukan.adresa}} -- {{dukan.grad}}">
-                    <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
-                </td>
-             </tr>
-         </tbody>
- 
-     </table>
+            <thead>
+                <tr>
+                    <th>Shop ID</th>
+                    <th> 
+                        Adress
+                        <input class="form-control" type="text" name="searchByAdress" id="searchByAdress" ng-model="searchByAdress" placeholder="Search by adress">
+                    </th>
+                    <th>
+                        Phone 
+                        <input class="form-control" type="number" name="searchByPhone" id="searchByPhone" ng-model="searchByPhone" placeholder="Search by phone">
+                    </th>
+                    <th>
+                        Shop
+                        <input class="form-control" type="text" name="searchByCity" id="searchByCity" ng-model="searchByCity" placeholder="Search by city">
+                    </th>
+                    <th><i class="fa-solid fa-pen"></i>Edit</th>
+                    <th><i class="fa-solid fa-trash-can"></i>Delete</th>
+                </tr>
+            </thead>
+            <tbody class="text-light">
+                <tr ng-repeat="dukan in dukani | filter:{adresa:searchByAdress,telefon:searchByPhone,grad:searchByCity}">
+                    <td>{{dukan.dukani_id}}</td>
+                    <td>{{dukan.adresa}}</td>
+                    <td>{{dukan.telefon}}</td>
+                    <td>{{dukan.grad}}</td>
+                    <td title="Edit"><i class="fa-solid fa-pen"></i></td>
+                    <td title="Delete {{dukan.dukani_id}} -- {{dukan.adresa}} -- {{dukan.grad}}">
+                        <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
  </div>
  
     <!-- The Modal -->
@@ -56,10 +54,11 @@
         <!-- Modal footer -->
         <div class="modal-footer bg-light">
           <button type="button" class="btn myBtn" data-bs-dismiss="modal" ng-click="deleteRow('dukani',dukani[getIndex].dukani_id)">Yes</button>
-          <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button>
-          
+          <button type="button" class="btn myBtn" data-bs-dismiss="modal">Back</button> 
         </div>
   
       </div>
     </div>
   </div>
+
+
