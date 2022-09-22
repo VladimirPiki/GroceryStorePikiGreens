@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `proizvodi` (
   `datum_priem` datetime NOT NULL,
   PRIMARY KEY (`proizvodi_id`),
   UNIQUE KEY `Index 2` (`datum_priem`,`ime`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2115 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2116 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table piljara.proizvodi: ~14 rows (approximately)
 INSERT INTO `proizvodi` (`proizvodi_id`, `ime`, `tip`, `kg`, `cena`, `datum_priem`) VALUES
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `vraboteni` (
   PRIMARY KEY (`vraboteni_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table piljara.vraboteni: ~11 rows (approximately)
+-- Dumping data for table piljara.vraboteni: ~12 rows (approximately)
 INSERT INTO `vraboteni` (`vraboteni_id`, `ime`, `prezime`, `grad`, `plata`) VALUES
 	(1, 'Vladimir', 'Krstevski', 'Bitola', 30000),
 	(2, 'Eleonora', 'Markovska', 'Bitola', 32000),
