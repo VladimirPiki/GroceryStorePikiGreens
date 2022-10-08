@@ -1,8 +1,7 @@
-<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
-<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
-
 <div class="myMarginEmployees mx-3 px-3 py-3  myBorderDetails myGreenColor">
   <h1 class="text-center">Enter your Employees</h1>
+  <div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+  <div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
   <form name="myForm">
     <div class="mb-3 mt-3">
       <label for="ime" class="form-label">Name</label>
@@ -23,6 +22,10 @@
         <label for="plata" class="form-label">Salary</label>
         <input type="number" class="form-control"  placeholder="Enter salary"  id="plata" name="plata" ng-model="plata">
     </div>
-      <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.prezime.$valid && myForm.grad.$valid) ? function_vraboteni(ime,prezime,grad,plata) : erorr()">Save</button>
+    <div class="mb-3">
+      <label for="vraboteni_img_path" class="form-label">Photo</label>
+      <input type="text" class="form-control"  placeholder="Enter photo"  id="vraboteni_img_path" name="vraboteni_img_path" ng-model="vraboteni_img_path">
+    </div>
+      <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.prezime.$valid && myForm.grad.$valid) ? function_vraboteni(ime,prezime,grad,plata,vraboteni_img_path) : erorr()">Save</button>
   </form>
 </div>

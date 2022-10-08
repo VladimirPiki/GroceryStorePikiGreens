@@ -6,16 +6,22 @@
 *{
 	margin: 0;
 	padding: 0;
+}
+html{
 	font-family: Decima Nova;
 }
-html,body{
+body{
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
+article {
+    margin: auto 0;
+}
 /*Background*/
 .firstSection{
 	background-image: url('../../uploads/background.jpg');
+	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -45,7 +51,7 @@ footer{
 	text-align: center;
 	color: white;
 	width: 100%;
-	margin-top: 100vh;
+	margin-top: 90vh;
 }
 footer h5,h6{
 	font-size: 10px;
@@ -105,3 +111,12 @@ footer h5,h6{
 		font-size: 15px;
 	}
   }
+
+/************HOME******************/
+.kupuvajMakProizvodi{
+	background-color: lightslategray;
+	color: whitesmoke;
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+}

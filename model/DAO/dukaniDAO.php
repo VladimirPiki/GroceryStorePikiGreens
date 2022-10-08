@@ -2,17 +2,16 @@
 
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
- * @link 
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
  */
 
 require_once "POJO/dukani.php";
 
 class DukaniDAO extends Dukani
 {
-
     private $table_name="dukani";
     private $database=null;
-    
+
     /**
      * @param mixed $objDB
      */
@@ -29,7 +28,8 @@ class DukaniDAO extends Dukani
         $adresa=parent::getAdresa();
         $telefon=parent::getTelefon();
         $grad=parent::getGrad();
-        $columns_value="'$adresa',$telefon,'$grad'";
+        $dukani_img_path=parent::getDukaniImgPath();
+        $columns_value="'$adresa',$telefon,'$grad','$dukani_img_path'";
         $this->database ->callStoredProcedure("_insert_dukani",$columns_value);  
     }
 
@@ -63,7 +63,7 @@ class DukaniDAO extends Dukani
         $grad=parent::getGrad();
         $columns="adresa='$adresa',telefon=$telefon,grad='$grad'";
         $condition="dukani_id=$dukani_id";
-        $this->database->updateRow($this->table_name,$columns,$condition);//class database
+        $this->database->updateRow($this->table_name,$columns,$condition);
     }
 
 }

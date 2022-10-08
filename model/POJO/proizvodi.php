@@ -7,19 +7,13 @@
 
 class Proizvodi 
 {
-
     private  $proizvodi_id;
-
     private  $ime;
-
     private  $tip;
-
     private  $kg;
-
     private  $cena;
-
     private  $datum_priem;
-
+    private $proizvodi_img_path;
     //constructors
 
     //getters,setters
@@ -29,7 +23,6 @@ class Proizvodi
      */
     public function getProizvodiID():int
     {
-        // TODO implement here
         return $this->proizvodi_id;
     }
 
@@ -38,7 +31,6 @@ class Proizvodi
      */
     public function setProizvodiID($proizvodi_id):void
     {
-        // TODO implement here
         $this->proizvodi_id=$proizvodi_id;
     }
 
@@ -47,7 +39,6 @@ class Proizvodi
      */
     public function getIme():string
     {
-        // TODO implement here
         return $this->ime;
     }
 
@@ -56,7 +47,6 @@ class Proizvodi
      */
     public function setIme($ime)
     {
-        // TODO implement here
         $this->ime=$ime;
     }
 
@@ -65,7 +55,6 @@ class Proizvodi
      */
     public function getTip():string
     {
-        // TODO implement here
         return $this->tip;
     }
 
@@ -74,7 +63,6 @@ class Proizvodi
      */
     public function setTip($tip):void
     {
-        // TODO implement here
         $this->tip=$tip;
     }
 
@@ -83,7 +71,6 @@ class Proizvodi
      */
     public function getKg() : int
     {
-        // TODO implement here
         return $this->kg;
     }
 
@@ -92,7 +79,6 @@ class Proizvodi
      */
     public function setKg($kg):void
     {
-        // TODO implement here
         $this->kg=$kg;
     }
 
@@ -101,7 +87,6 @@ class Proizvodi
      */
     public function getCena()
     {
-        // TODO implement here
         return $this->cena;
     }
 
@@ -110,7 +95,6 @@ class Proizvodi
      */
     public function setCena($cena):void
     {
-        // TODO implement here
         $this->cena=$cena;
     }
 
@@ -119,7 +103,6 @@ class Proizvodi
      */
     public function getDatumPriem():string
     {
-        // TODO implement here
         return $this->datum_priem;
     }
 
@@ -128,8 +111,16 @@ class Proizvodi
      */
     public function setDatumPriem($datum_priem):void
     {
-        // TODO implement here
         $this->datum_priem=$datum_priem;
     }
 
+    public function getProizvodiImgPath():string
+    {
+        return $this->proizvodi_img_path;
+    }
+
+    public function setProizvodiImgPath($proizvodi_img_path)
+    {
+        $this->proizvodi_img_path=$proizvodi_img_path;
+    }
 }

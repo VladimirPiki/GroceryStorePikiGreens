@@ -2,7 +2,7 @@
 
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
- * @link 
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
  */
 
 require_once "POJO/vraboteni.php";
@@ -29,7 +29,8 @@ class VraboteniDAO extends Vraboteni
         $prezime=parent::getPrezime();
         $grad=parent::getGrad();
         $plata=parent::getPlata();
-        $columns_value="'$ime','$prezime','$grad',$plata";
+        $vraboteni_img_path=parent::getVraboteniImgPath();
+        $columns_value="'$ime','$prezime','$grad',$plata,'$vraboteni_img_path'";
         $this->database ->callStoredProcedure("_insert_vraboteni",$columns_value); 
     }
 

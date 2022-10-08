@@ -9,13 +9,10 @@ class Dukani
 {
     //class attributes
         private  $dukani_id;
-
         private  $adresa;
-
-        private $telefon;
-        
+        private $telefon;   
         private $grad;
-
+        private $dukani_img_path;
     //constructors
 
     //setters
@@ -25,7 +22,6 @@ class Dukani
      */
     public function getDukaniID()
     {
-        // TODO implement here
         return $this->dukani_id;
     }
 
@@ -34,7 +30,6 @@ class Dukani
      */
     public function setDukaniID($dukani_id)
     {
-        // TODO implement here
         $this->dukani_id=$dukani_id;
     }
 
@@ -43,7 +38,6 @@ class Dukani
      */
     public function getAdresa()
     {
-        // TODO implement here
         return $this->adresa;
     }
 
@@ -52,7 +46,6 @@ class Dukani
      */
     public function setAdresa($adresa)
     {
-        // TODO implement here
         $this->adresa=$adresa;
     }
 
@@ -61,7 +54,6 @@ class Dukani
      */
     public function getTelefon()
     {
-        // TODO implement here
         return $this->telefon;
     }
 
@@ -70,7 +62,6 @@ class Dukani
      */
     public function setTelefon($telefon)
     {
-        // TODO implement here
         $this->telefon=$telefon;
     }
 
@@ -79,7 +70,6 @@ class Dukani
      */
     public function getGrad()
     {
-        // TODO implement here
         return $this->grad;
     }
 
@@ -88,8 +78,24 @@ class Dukani
      */
     public function setGrad($grad)
     {
-        // TODO implement here
         $this->grad=$grad;
     }
 
+    /**
+     * @return [type]
+     */
+    public function getDukaniImgPath()
+    {
+        return $this->dukani_img_path;
+    }
+
+    /**
+     * @param mixed $dukani_img_path
+     * 
+     * @return [type]
+     */
+    public function setDukaniImgPath($dukani_img_path)
+    {
+        $this->dukani_img_path=$dukani_img_path;
+    }
 }

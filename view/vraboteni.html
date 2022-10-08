@@ -21,6 +21,7 @@
                     Salary
                     <input class="form-control" type="number" name="searchBySalaryOfEmployees" id="searchBySalaryOfEmployees" ng-model="searchBySalaryOfEmployees" placeholder="Search by price">
                 </th>
+                <th></th>
                 <th><i class="fa-solid fa-pen"></i>Edit</th>
                 <th><i class="fa-solid fa-trash-can"></i>Delete</th>
             </tr>
@@ -32,6 +33,7 @@
                 <td>{{vraboten.prezime}}</td>
                 <td>{{vraboten.grad}}</td>
                 <td>{{vraboten.plata}}</td>
+                <td><img class="rounded" width="100" height="100" src="uploads/vraboteni/{{vraboten.vraboteni_img_path}}" alt="{{vraboten.vraboteni_img_path}}"></td>
                 <td title="Edit"><i class="fa-solid fa-pen"></i></td>
                 <td title="Delete {{vraboten.proizvodi_id}} -- {{vraboten.ime}} {{vraboten.prezime}}">
                     <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>

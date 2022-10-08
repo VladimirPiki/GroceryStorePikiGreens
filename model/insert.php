@@ -2,7 +2,7 @@
 
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
- * @link 
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
  */
 
 $data=json_decode(file_get_contents("php://input"));
@@ -31,7 +31,7 @@ switch ($table_name){
         $objDukani->setAdresa($data[0]->adresa);
         $objDukani->setTelefon($data[0]->telefon);
         $objDukani->setGrad($data[0]->grad);
-
+        $objDukani->setDukaniImgPath($data[0]->dukani_img_path);
         //DAO
         $objDukani->insertDukani();
 
@@ -76,7 +76,7 @@ switch ($table_name){
         $objProizvodi->setKg($data[0]->kg);
         $objProizvodi->setCena($data[0]->cena);
         $objProizvodi->setDatumPriem($formatProizvodiDatumPriem);
-
+        $objProizvodi->setProizvodiImgPath($data[0]->proizvodi_img_path);
         //DAO
         $objProizvodi ->insertProizvodi();
     break;
@@ -113,7 +113,7 @@ switch ($table_name){
         $objVraboteni ->setPrezime($data[0]->prezime);
         $objVraboteni ->setGrad($data[0]->grad);
         $objVraboteni ->setPlata($data[0]->plata);
-
+        $objVraboteni ->setVraboteniImgPath($data[0]->vraboteni_img_path);
         //DAO
         $objVraboteni ->insertVraboteni();
     break;

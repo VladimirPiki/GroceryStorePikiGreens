@@ -16,6 +16,7 @@
                         Shop
                         <input class="form-control" type="text" name="searchByCity" id="searchByCity" ng-model="searchByCity" placeholder="Search by city">
                     </th>
+                    <th></th>
                     <th><i class="fa-solid fa-pen"></i>Edit</th>
                     <th><i class="fa-solid fa-trash-can"></i>Delete</th>
                 </tr>
@@ -26,6 +27,7 @@
                     <td>{{dukan.adresa}}</td>
                     <td>{{dukan.telefon}}</td>
                     <td>{{dukan.grad}}</td>
+                    <td><img class="rounded" width="100" height="100" src="uploads/dukani/{{dukan.dukani_img_path}}" alt="{{dukan.dukani_img_path}}"></td>
                     <td title="Edit"><i class="fa-solid fa-pen"></i></td>
                     <td title="Delete {{dukan.dukani_id}} -- {{dukan.adresa}} -- {{dukan.grad}}">
                         <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>

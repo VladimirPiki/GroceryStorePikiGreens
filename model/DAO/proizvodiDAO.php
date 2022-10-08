@@ -2,7 +2,7 @@
 
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
- * @link 
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
  */
 
 require_once "POJO/proizvodi.php";
@@ -10,7 +10,6 @@ require_once "POJO/proizvodi.php";
 class ProizvodiDAO extends Proizvodi
 {
     private $table_name="proizvodi";
-
     private $database=null;
 
     /**
@@ -31,7 +30,8 @@ class ProizvodiDAO extends Proizvodi
         $kg=parent::getKg();
         $cena=parent::getCena();
         $datum_priem=parent::getDatumPriem();
-        $columns_value="'$ime','$tip',$kg,$cena,'$datum_priem'";
+        $proizvodi_img_path=parent::getProizvodiImgPath();
+        $columns_value="'$ime','$tip',$kg,$cena,'$datum_priem','$proizvodi_img_path'";
         $this->database ->callStoredProcedure("_insert_proizvodi",$columns_value); 
     }
 

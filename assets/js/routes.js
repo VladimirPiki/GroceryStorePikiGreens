@@ -1,7 +1,7 @@
 app.config(function($routeProvider) {
   $routeProvider
-  .when("/home", {
-    templateUrl : "view/main.html",
+  .when("/main", {
+    templateUrl : "view/home.html",
 	controller:"myCtrl"
   })
   .when("/dukani", {

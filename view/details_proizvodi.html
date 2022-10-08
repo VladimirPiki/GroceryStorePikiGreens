@@ -1,8 +1,7 @@
-<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
-<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
-
 <div class="myMargin mx-3 px-3 py-3  myBorderDetails myGreenColor">
   <h1 class="text-center">Enter your Products</h1>
+  <div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+  <div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
   <form name="myForm">
     <div class="mb-3 mt-3">
       <label for="ime" class="form-label">Name of products</label>
@@ -33,7 +32,11 @@
         <span class="alert alert-danger" ng-show="myForm.datum_priem.$invalid">Enter valid date and time!!!</span>
         <input type="datetime-local" class="form-control"  placeholder="Enter date of entry on the products"  id="datum_priem" name="datum_priem" ng-model="datum_priem" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2222-12-31T00:00:00">
     </div>
-      <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.tip.$valid && myForm.kg.$valid && myForm.cena.$valid && myForm.datum_priem.$valid) ? function_proizvodi(ime,tip,kg,cena,datum_priem) : erorr()">Save</button>
+    <div class="mb-3">
+      <label for="proizvodi_img_path" class="form-label">Photo</label>
+      <input type="text" class="form-control"  placeholder="Enter photo"  id="proizvodi_img_path" name="proizvodi_img_path" ng-model="proizvodi_img_path">
+    </div>
+      <button type="button" class="btn btn-light" ng-click="(myForm.ime.$valid && myForm.tip.$valid && myForm.kg.$valid && myForm.cena.$valid && myForm.datum_priem.$valid) ? function_proizvodi(ime,tip,kg,cena,datum_priem,proizvodi_img_path) : erorr()">Save</button>
   </form>
 </div>
 

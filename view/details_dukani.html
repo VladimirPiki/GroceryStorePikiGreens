@@ -1,8 +1,7 @@
-<div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
-<div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
-
-  <div class="myMargin mx-3 px-3 py-3  myBorderDetails myGreenColor">
+<div class="myMargin mx-3 px-3 py-3  myBorderDetails myGreenColor">
     <h1 class="text-center">Enter your Shop</h1>
+    <div class="alert alert-success" ng-show="success_alert">Successfully entered data!!!</div>
+    <div class="alert alert-danger" ng-show="error_alert">Attention enter correct data!!!</div>
     <form name="myForm">
         <div class="mb-3 ">
           <label for="adresa" class="form-label">Adress</label>
@@ -19,6 +18,10 @@
             <span class="alert alert-danger" ng-show="myForm.grad.$invalid">Enter a valid city with at least 4 characters!!!</span>
             <input type="text" class="form-control"  placeholder="Enter city"  id="grad" name="grad"  ng-minlength="4" ng-model="grad">
         </div>
-        <button type="button" class="btn btn-light" ng-click="(myForm.adresa.$valid && myForm.telefon.$valid && myForm.grad.$valid) ? function_dukani(adresa,telefon,grad) : erorr()">Save</button>
+        <div class="mb-3">
+          <label for="dukani_img_path" class="form-label">Photo</label>
+          <input type="text" class="form-control"  placeholder="Enter photo"  id="dukani_img_path" name="dukani_img_path" ng-model="dukani_img_path">
+        </div>
+        <button type="button" class="btn btn-light" ng-click="(myForm.adresa.$valid && myForm.telefon.$valid && myForm.grad.$valid) ? function_dukani(adresa,telefon,grad,dukani_img_path) : erorr()">Save</button>
     </form>
   </div>

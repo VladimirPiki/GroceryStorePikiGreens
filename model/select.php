@@ -2,7 +2,7 @@
 
 /**
  * @author Vladimir Krstevski <vlade.piki23@hotmail.com>
- * @link 
+ * @link https://www.linkedin.com/in/vladimir-krstevski-6182aa24b/
  */
 
  require_once "../lib/class_database_piljara.php";
@@ -31,7 +31,8 @@ switch ($table_name){
                 "dukani_id" => $row["dukani_id"],
                 "adresa" => $row["adresa"],
                 "telefon" => $row["telefon"],
-                "grad" => $row["grad"]
+                "grad" => $row["grad"],
+                "dukani_img_path" => $row["dukani_img_path"]
             );
             }
     break;
@@ -86,7 +87,8 @@ switch ($table_name){
             "tip" => $row["tip"],
             "kg" => $row["kg"],
             "cena" => $row["cena"],
-            "datum_priem" => $row["datum_priem"]
+            "datum_priem" => $row["datum_priem"],
+            "proizvodi_img_path" => $row["proizvodi_img_path"]
         );
         }
     break;
@@ -136,7 +138,8 @@ switch ($table_name){
             "ime" => $row["ime"],
             "prezime" => $row["prezime"],
             "grad" => $row["grad"],
-            "plata" => $row["plata"]
+            "plata" => $row["plata"],
+            "vraboteni_img_path" => $row["vraboteni_img_path"]
         );
         }
     break;

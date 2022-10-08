@@ -9,15 +9,11 @@ class Vraboteni
 {
     //class attributes
     private  $vraboteni_id;
-
     private  $ime;
-
     private  $prezime;
-
     private  $grad;
-
     private  $plata;
-
+    private  $vraboteni_img_path;
     //constructors
 
     //getters,setters
@@ -27,7 +23,6 @@ class Vraboteni
      */
     public function getVraboteniID()
     {
-        // TODO implement here
         return $this->vraboteni_id;
     }
 
@@ -36,7 +31,6 @@ class Vraboteni
      */
     public function setVraboteniID($vraboteni_id)
     {
-        // TODO implement here
         $this->vraboteni_id=$vraboteni_id;
     }
 
@@ -45,7 +39,6 @@ class Vraboteni
      */
     public function getIme()
     {
-        // TODO implement here
         return $this->ime;
     }
 
@@ -54,7 +47,6 @@ class Vraboteni
      */
     public function setIme($ime)
     {
-        // TODO implement here
         $this->ime=$ime;
     }
 
@@ -63,7 +55,6 @@ class Vraboteni
      */
     public function getPrezime()
     {
-        // TODO implement here
         return $this->prezime;
     }
 
@@ -72,7 +63,6 @@ class Vraboteni
      */
     public function setPrezime($prezime)
     {
-        // TODO implement here
         $this->prezime=$prezime;
     }
 
@@ -81,7 +71,6 @@ class Vraboteni
      */
     public function getGrad()
     {
-        // TODO implement here
         return $this->grad;
     }
 
@@ -90,7 +79,6 @@ class Vraboteni
      */
     public function setGrad($grad)
     {
-        // TODO implement here
         $this->grad=$grad;
     }
 
@@ -99,7 +87,6 @@ class Vraboteni
      */
     public function getPlata()
     {
-        // TODO implement here
         return $this->plata;
     }
 
@@ -108,8 +95,16 @@ class Vraboteni
      */
     public function setPlata($plata)
     {
-        // TODO implement here
         $this->plata=$plata;
     }
 
+    public function getVraboteniImgPath()
+    {
+        return $this->vraboteni_img_path;
+    }
+
+    public function setVraboteniImgPath($vraboteni_img_path)
+    {
+        $this->vraboteni_img_path=$vraboteni_img_path;
+    }
 }

@@ -52,9 +52,9 @@ app.controller('myCtrl', function($scope,$http) {
 
 ///Button function of details --> Insert in Database
 
-  $scope.function_dukani=function(adresa,telefon,grad){
+  $scope.function_dukani=function(adresa,telefon,grad,dukani_img_path){
     objDukani=[];
-    objDukani.push({"adresa":adresa,"telefon":telefon,"grad":grad,"table_name":"dukani"});
+    objDukani.push({"adresa":adresa,"telefon":telefon,"grad":grad,"dukani_img_path":dukani_img_path,"table_name":"dukani"});
     console.log("objDukani");
     postData("insert",objDukani);
   };
@@ -67,10 +67,10 @@ app.controller('myCtrl', function($scope,$http) {
     postData("insert",objProdazba);
   }
 
-  $scope.function_proizvodi=function(ime,tip,kg,cena,datum_priem)
+  $scope.function_proizvodi=function(ime,tip,kg,cena,datum_priem,proizvodi_img_path)
   {
     var objProizvodi=[];
-    objProizvodi.push({"ime":ime,"tip":tip,"kg":kg,"cena":cena,"datum_priem":datum_priem,"table_name":"proizvodi"});
+    objProizvodi.push({"ime":ime,"tip":tip,"kg":kg,"cena":cena,"datum_priem":datum_priem,"proizvodi_img_path":proizvodi_img_path,"table_name":"proizvodi"});
     console.log(objProizvodi);
     postData("insert",objProizvodi);
   }
@@ -83,10 +83,10 @@ app.controller('myCtrl', function($scope,$http) {
     postData("insert",objRabotnik);
   }
 
-  $scope.function_vraboteni=function(ime,prezime,grad,plata)
+  $scope.function_vraboteni=function(ime,prezime,grad,plata,vraboteni_img_path)
   {
     var objVraboteni=[];
-    objVraboteni.push({"ime":ime,"prezime":prezime,"grad":grad,"plata":plata,"table_name":"vraboteni"});
+    objVraboteni.push({"ime":ime,"prezime":prezime,"grad":grad,"plata":plata,"vraboteni_img_path":vraboteni_img_path,"table_name":"vraboteni"});
     console.log(objVraboteni);
     postData("insert",objVraboteni);
   }

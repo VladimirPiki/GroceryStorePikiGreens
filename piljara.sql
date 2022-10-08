@@ -25,22 +25,23 @@ CREATE TABLE IF NOT EXISTS `dukani` (
   `adresa` varchar(50) NOT NULL,
   `telefon` int(9) unsigned NOT NULL,
   `grad` varchar(15) NOT NULL,
+  `dukani_img_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`dukani_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table piljara.dukani: ~10 rows (approximately)
-INSERT INTO `dukani` (`dukani_id`, `adresa`, `telefon`, `grad`) VALUES
-	(1, 'Ulica 16ta bb', 75228730, 'Bitola'),
-	(2, 'Partizanska 23a', 72230630, 'Bitola'),
-	(3, 'Pavle Del Radev bb', 76775980, 'Prilep'),
-	(4, 'Jane Sandanski 03b', 75222333, 'Strumica'),
-	(5, '8mi Septemvri 7a bb', 75443888, 'Ohrid'),
-	(6, 'Ivo Lola Ribar 31a', 75228740, 'Kavadarci'),
-	(7, 'Jane Sandanski bb', 76775980, 'Prilep'),
-	(8, 'Ulica Goce Delcev bb', 75228555, 'Strumica'),
-	(9, 'Ulica Partizanska br 55', 75244655, 'Bitola'),
-	(10, 'Gjorgi Sugarev', 75244555, 'Negotino'),
-	(11, 'Ulica Goran Pandev br bb', 76777888, 'Kavadarci');
+-- Dumping data for table piljara.dukani: ~11 rows (approximately)
+INSERT INTO `dukani` (`dukani_id`, `adresa`, `telefon`, `grad`, `dukani_img_path`) VALUES
+	(1, 'Ulica 16ta bb', 75228730, 'Bitola', 'dukan1.jpg'),
+	(2, 'Partizanska 23a', 72230630, 'Bitola', 'dukan2.jpg'),
+	(3, 'Pavle Del Radev bb', 76775980, 'Prilep', 'dukan3.jpg'),
+	(4, 'Jane Sandanski 03b', 75222333, 'Strumica', 'dukan4.jpg'),
+	(5, '8mi Septemvri 7a bb', 75443888, 'Ohrid', 'dukan4.jpg'),
+	(6, 'Ivo Lola Ribar 31a', 75228740, 'Kavadarci', 'dukan4.jpg'),
+	(7, 'Jane Sandanski bb', 76775980, 'Prilep', 'dukan4.jpg'),
+	(8, 'Ulica Goce Delcev bb', 75228555, 'Strumica', 'dukan4.jpg'),
+	(9, 'Ulica Partizanska br 55', 75244655, 'Bitola', 'dukan4.jpg'),
+	(10, 'Gjorgi Sugarev', 75244555, 'Negotino', 'dukan4.jpg'),
+	(11, 'Ulica Goran Pandev br bb', 76777888, 'Kavadarci', 'dukan4.jpg');
 
 -- Dumping structure for table piljara.prodazba
 CREATE TABLE IF NOT EXISTS `prodazba` (
@@ -55,45 +56,45 @@ CREATE TABLE IF NOT EXISTS `prodazba` (
   CONSTRAINT `FK_prodazba_rabotnik` FOREIGN KEY (`rabotnik_id`) REFERENCES `rabotnik` (`rabotnik_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table piljara.prodazba: ~8 rows (approximately)
+-- Dumping data for table piljara.prodazba: ~6 rows (approximately)
 INSERT INTO `prodazba` (`prodazba_id`, `prodazba_datum`, `promet`, `prodadeno_kg`, `rasipano_kg`, `rabotnik_id`) VALUES
 	(1, '2022-08-09', 43000, 250.0, 20.0, 1),
 	(2, '2022-08-10', 53000, 300.0, 24.0, 2),
 	(3, '2022-08-11', 33000, 287.0, 14.0, 3),
 	(4, '2022-08-12', 45454, 417.0, 34.0, 4),
 	(5, '2022-08-13', 50070, 280.0, 20.0, 5),
-	(6, '2022-08-14', 60000, 490.0, 14.0, 6),
-	(7, '2022-08-15', 49970, 277.0, 18.0, 7),
-	(8, '2022-08-16', 57000, 450.0, 20.0, 9);
+	(6, '2022-08-14', 60000, 490.0, 14.0, 6);
 
 -- Dumping structure for table piljara.proizvodi
 CREATE TABLE IF NOT EXISTS `proizvodi` (
   `proizvodi_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `ime` varchar(15) NOT NULL,
-  `tip` enum('zelencuk','ovoshje') NOT NULL,
+  `tip` enum('vegetable','fruit') NOT NULL,
   `kg` decimal(20,1) NOT NULL DEFAULT 0.0,
   `cena` smallint(4) unsigned NOT NULL,
   `datum_priem` datetime NOT NULL,
+  `proizvodi_img_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`proizvodi_id`),
   UNIQUE KEY `Index 2` (`datum_priem`,`ime`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2116 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2119 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table piljara.proizvodi: ~14 rows (approximately)
-INSERT INTO `proizvodi` (`proizvodi_id`, `ime`, `tip`, `kg`, `cena`, `datum_priem`) VALUES
-	(1, 'Domat', 'zelencuk', 35.0, 40, '2022-08-05 00:00:00'),
-	(2, 'Krastavica', 'zelencuk', 350.0, 40, '2022-08-06 13:00:00'),
-	(3, 'Ljubenici', 'ovoshje', 400.0, 30, '2022-08-06 13:00:00'),
-	(4, 'Zelka', 'zelencuk', 280.0, 33, '2022-08-06 13:00:00'),
-	(5, 'Kompiri', 'zelencuk', 330.0, 13, '2022-08-06 13:00:00'),
-	(6, 'Piperki', 'zelencuk', 102.0, 19, '2022-08-06 13:00:00'),
-	(7, 'Banani', 'ovoshje', 143.0, 39, '2022-08-10 14:00:00'),
-	(8, 'Domat', 'zelencuk', 143.0, 39, '2022-08-10 14:00:00'),
-	(9, 'Jagodi', 'ovoshje', 43.0, 49, '2022-08-10 14:00:00'),
-	(10, 'Kivi', 'ovoshje', 15.0, 23, '2022-08-10 14:00:00'),
-	(11, 'Ljubenici', 'ovoshje', 40.0, 30, '2022-08-12 14:00:00'),
-	(12, 'Jagodi', 'ovoshje', 30.0, 10, '2022-09-10 13:09:00'),
-	(13, 'Jabolka', 'ovoshje', 54.0, 28, '2022-09-14 16:47:00'),
-	(14, 'Piperki Ajvar', 'zelencuk', 100.0, 23, '2022-09-15 13:00:00');
+-- Dumping data for table piljara.proizvodi: ~15 rows (approximately)
+INSERT INTO `proizvodi` (`proizvodi_id`, `ime`, `tip`, `kg`, `cena`, `datum_priem`, `proizvodi_img_path`) VALUES
+	(1, 'Domat', 'vegetable', 35.0, 40, '2022-08-05 00:00:00', 'domat.jpg'),
+	(2, 'Krastavica', 'vegetable', 350.0, 40, '2022-08-06 13:00:00', 'krastajci.jpg'),
+	(3, 'Ljubenici', 'fruit', 400.0, 30, '2022-08-06 13:00:00', 'ljubenica.jpg'),
+	(4, 'Zelka', 'vegetable', 280.0, 33, '2022-08-06 13:00:00', 'zelka.jpg'),
+	(5, 'Kompiri', 'vegetable', 330.0, 13, '2022-08-06 13:00:00', 'kompiri.jpg'),
+	(6, 'Piperki', 'vegetable', 102.0, 19, '2022-08-06 13:00:00', 'piperki.jpg'),
+	(7, 'Banani', 'fruit', 143.0, 39, '2022-08-10 14:00:00', 'banana.jpg'),
+	(8, 'Domat', 'vegetable', 143.0, 39, '2022-08-10 14:00:00', 'domat.jpg'),
+	(9, 'Jagodi', 'fruit', 43.0, 49, '2022-08-10 14:00:00', 'jagoda.jpg'),
+	(10, 'Kivi', 'fruit', 15.0, 23, '2022-08-10 14:00:00', 'kiva.jpg'),
+	(11, 'Ljubenici', 'fruit', 40.0, 30, '2022-08-12 14:00:00', 'ljubenica.jpg'),
+	(12, 'Jagodi', 'fruit', 30.0, 10, '2022-09-10 13:09:00', 'jagoda.jpg'),
+	(13, 'Jabolka', 'fruit', 54.0, 28, '2022-09-14 16:47:00', 'jabolko.jpg'),
+	(14, 'Piperki Ajvar', 'vegetable', 100.0, 23, '2022-09-15 13:00:00', 'ajvar.jpg'),
+	(16, 'Piperki Ajvar', 'vegetable', 400.0, 25, '2022-09-16 13:30:00', 'ajvar.jpg');
 
 -- Dumping structure for table piljara.rabotnik
 CREATE TABLE IF NOT EXISTS `rabotnik` (
@@ -110,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `rabotnik` (
   CONSTRAINT `FK_vraboteni_rabotnik` FOREIGN KEY (`vraboteni_id`) REFERENCES `vraboteni` (`vraboteni_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table piljara.rabotnik: ~9 rows (approximately)
+-- Dumping data for table piljara.rabotnik: ~8 rows (approximately)
 INSERT INTO `rabotnik` (`rabotnik_id`, `datum`, `smena`, `dukani_id`, `vraboteni_id`) VALUES
 	(1, '2022-08-09', 'prva', 1, 1),
 	(2, '2022-08-10', 'prva', 1, 2),
@@ -119,8 +120,7 @@ INSERT INTO `rabotnik` (`rabotnik_id`, `datum`, `smena`, `dukani_id`, `vraboteni
 	(5, '2022-08-13', 'prva', 6, 7),
 	(6, '2022-08-14', 'vtora', 5, 4),
 	(7, '2022-08-15', 'prva', 4, 6),
-	(8, '2022-08-16', 'vtora', 11, 10),
-	(9, '2022-08-17', 'vtora', 11, 11);
+	(8, '2022-08-16', 'vtora', 11, 10);
 
 -- Dumping structure for table piljara.vraboteni
 CREATE TABLE IF NOT EXISTS `vraboteni` (
@@ -129,22 +129,23 @@ CREATE TABLE IF NOT EXISTS `vraboteni` (
   `prezime` varchar(30) NOT NULL,
   `grad` varchar(30) NOT NULL,
   `plata` mediumint(6) unsigned NOT NULL,
+  `vraboteni_img_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`vraboteni_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table piljara.vraboteni: ~12 rows (approximately)
-INSERT INTO `vraboteni` (`vraboteni_id`, `ime`, `prezime`, `grad`, `plata`) VALUES
-	(1, 'Vladimir', 'Krstevski', 'Bitola', 30000),
-	(2, 'Eleonora', 'Markovska', 'Bitola', 32000),
-	(3, 'Andrej', 'Markovski', 'Bitola', 35000),
-	(4, 'Andrej', 'Nedelkovski', 'Prilep', 29000),
-	(5, 'Darko', 'Krstevski', 'Prilep', 25000),
-	(6, 'Darko', 'Joshevski', 'Strumica', 33000),
-	(7, 'Darko', 'Krstev', 'Strumica', 31000),
-	(8, 'Antimon', 'Krstev', 'Kocani', 29700),
-	(9, 'Jovana', 'Mladenova', 'Ohrid', 28500),
-	(10, 'Zorica', 'Krstevska', 'Kavadarci', 55000),
-	(11, 'Andrej', 'Nedelkovski', 'Ohrid', 29000);
+-- Dumping data for table piljara.vraboteni: ~11 rows (approximately)
+INSERT INTO `vraboteni` (`vraboteni_id`, `ime`, `prezime`, `grad`, `plata`, `vraboteni_img_path`) VALUES
+	(1, 'Vladimir', 'Krstevski', 'Bitola', 30000, 'vraboten1.jpg'),
+	(2, 'Eleonora', 'Markovska', 'Bitola', 32000, 'vraboten2.jpg'),
+	(3, 'Andrej', 'Markovski', 'Bitola', 35000, 'vraboten3.jpg'),
+	(4, 'Andrej', 'Nedelkovski', 'Prilep', 29000, 'vraboten4.jpg'),
+	(5, 'Darko', 'Krstevski', 'Prilep', 25000, 'vraboten3.jpg'),
+	(6, 'Darko', 'Joshevski', 'Strumica', 33000, 'vraboten1.jpg'),
+	(7, 'Darko', 'Krstev', 'Strumica', 31000, 'vraboten4.jpg'),
+	(8, 'Antimon', 'Krstev', 'Kocani', 29700, 'vraboten2.jpg'),
+	(10, 'Zorica', 'Krstevska', 'Kavadarci', 55000, 'vraboten1.jpg'),
+	(11, 'Andrej', 'Nedelkovski', 'Ohrid', 29000, 'vraboten3.jpg'),
+	(16, 'Vlado', 'Pavlov', 'Kochani', 34000, 'vraboten2.jpg');
 
 -- Dumping structure for procedure piljara._delete_dukani
 DELIMITER //
@@ -206,11 +207,12 @@ DELIMITER //
 CREATE PROCEDURE `_insert_dukani`(
 	IN `adresa_param` VARCHAR(50),
 	IN `telefon_pram` INT(9),
-	IN `grad_param` VARCHAR(15)
+	IN `grad_param` VARCHAR(15),
+	IN `dukani_img_path_param` VARCHAR(255)
 )
 BEGIN
-INSERT INTO dukani(adresa,telefon,grad)
-VALUES(adresa_param,telefon_pram,grad_param);
+INSERT INTO dukani(adresa,telefon,grad,dukani_img_path)
+VALUES(adresa_param,telefon_pram,grad_param,dukani_img_path_param);
 END//
 DELIMITER ;
 
@@ -233,14 +235,15 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE `_insert_proizvodi`(
 	IN `ime_param` VARCHAR(15),
-	IN `tip_param` ENUM('zelencuk','ovoshje'),
+	IN `tip_param` ENUM('vegetable','fruit'),
 	IN `kg_param` DECIMAL(20,1),
 	IN `cena_param` DECIMAL(20,1),
-	IN `datum_priem_param` DATETIME
+	IN `datum_priem_param` DATETIME,
+	IN `proizvodi_img_path_param` VARCHAR(255)
 )
 BEGIN
-INSERT INTO proizvodi(ime,tip,kg,cena,datum_priem)
-VALUES(ime_param,tip_param,kg_param,cena_param,datum_priem_param);
+INSERT INTO proizvodi(ime,tip,kg,cena,datum_priem,proizvodi_img_path)
+VALUES(ime_param,tip_param,kg_param,cena_param,datum_priem_param,proizvodi_img_path_param);
 END//
 DELIMITER ;
 
@@ -264,11 +267,12 @@ CREATE PROCEDURE `_insert_vraboteni`(
 	IN `ime_param` VARCHAR(15),
 	IN `prezime_param` VARCHAR(30),
 	IN `grad_param` VARCHAR(30),
-	IN `plata_param` MEDIUMINT(6)
+	IN `plata_param` MEDIUMINT(6),
+	IN `vraboteni_img_path_param` VARCHAR(255)
 )
 BEGIN
-INSERT INTO vraboteni(ime,prezime,grad,plata)
-VALUES(ime_param,prezime_param,grad_param,plata_param);
+INSERT INTO vraboteni(ime,prezime,grad,plata,vraboteni_img_path)
+VALUES(ime_param,prezime_param,grad_param,plata_param,vraboteni_img_path_param);
 END//
 DELIMITER ;
 

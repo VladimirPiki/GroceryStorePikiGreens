@@ -28,6 +28,7 @@
                         Date of entry on the products
                         <input class="form-control" type="text" name="searchByDateOfProducts" id="searchByDateOfProducts" ng-model="searchByDateOfProducts" placeholder="Search by Date of entry">
                     </th>
+                    <th></th>
                     <th><i class="fa-solid fa-pen"></i>Edit</th>
                     <th><i class="fa-solid fa-trash-can"></i>Delete</th>
                 </tr>
@@ -40,6 +41,7 @@
                     <td>{{proizvod.kg}}</td>
                     <td>{{proizvod.cena}}</td>
                     <td>{{proizvod.datum_priem}}</td>
+                    <td><img class="rounded" width="100" height="100" src="uploads/proizvodi/{{proizvod.proizvodi_img_path}}" alt="{{proizvod.proizvodi_img_path}}"></td>
                     <td title="Edit"><i class="fa-solid fa-pen"></i></td>
                     <td title="Delete {{proizvod.proizvodi_id}} -- {{proizvod.ime}}">
                         <button type="button" class="btn myBtn" data-bs-toggle="modal" data-bs-target="#myModal" ng-click="passPosition($index)"> <i class="fa-solid fa-trash-can"></i></button>
